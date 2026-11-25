@@ -392,7 +392,7 @@ const ContactArchWindow = ({
                         required
                         value={formData.phone}
                         onChange={handleChange}
-                        placeholder="+971 50 123 4567"
+                        placeholder="+971 50 852 0527"
                         className={inputClass("phone")}
                         aria-invalid={Boolean(errors.phone)}
                       />
