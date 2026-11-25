@@ -1,4 +1,6 @@
-import HeroArchWordmark from "@/components/sections/hero/HeroArchWordmark";
+import HeroMockupComposition from "@/components/sections/hero/HeroMockupComposition";
+import CustomerQuestionsSection from "@/components/sections/features/CustomerQuestionsSection";
+import InteractivePortfolioSection from "@/components/sections/gallery/InteractivePortfolioSection";
 import ServicesStackCards from "@/components/sections/features/ServicesStackCards";
 import GalleryArchTrack from "@/components/sections/gallery/GalleryArchTrack";
 import ProcessMaskSteps from "@/components/sections/features/ProcessMaskSteps";
@@ -11,73 +13,37 @@ import LoaderArchRise from "@/components/loaders/LoaderArchRise";
 export default function HomePage() {
   return (
     <>
-      <LoaderArchRise
-        label="MECLIN Web Design, Dubai"
-      />
+      <LoaderArchRise label="MECLIN Web Design, Dubai" />
 
-      <div id="hero" data-webild-section="HeroArchWordmark" data-webild-section-id="HeroArchWordmark-1" data-section="hero" data-scene>
-        <HeroArchWordmark
-          title="Make it easy for customers to choose you"
-          rotatingWords={[
-            "customers",
-            "guests",
-            "clients"
-          ]}
-          rotateIn="middle"
-          primaryButton={{
-            text: "Book a free call",
-            href: "#contact-arch-window"
-          }}
-          secondaryButton={{
-            text: "Explore the demos",
-            href: "#gallery"
-          }}
-          items={[
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/health-cure-medicine-medical-wellness-concept_53876-132293.jpg",
-              imageAlt: "office with medical dashboard screen"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/portrait-handsome-bearded-dentist-male-glasses-wearing-blue-uniform-sitting-dentist-office-looking-camera_613910-18529.jpg",
-              imageAlt: "dentist sitting in clinic"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/body-scrub-dried-shell-essential-oil-soap-bar-napkin-smartphone-black-background_23-2147971434.jpg",
-              imageAlt: "spa products on table"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/crom-men-enjoying-dessert-cafe_23-2147775905.jpg",
-              imageAlt: "people eating dessert in cafe"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/bowl-with-yogurt-breakfast-oggice_23-2148571020.jpg",
-              imageAlt: "yogurt breakfast at office desk"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/portrait-young-bearded-man-earphones-sitting_171337-4770.jpg",
-              imageAlt: "Portrait of a young bearded man in earphones sitting"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/portrait-young-man-using-his-laptop-while-sitting-coffee-shop-technology-lifestyle-concept_58466-12842.jpg",
-              imageAlt: "Portrait of young man using his laptop while sitting in a coffee shop. Technology and lifestyle concept."
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/portrait-businessman-glasses-sits-cafe-with-laptop-looks-concentrated-screen-with-his_1258-245424.jpg",
-              imageAlt: "Portrait of businessman in glasses sits in cafe with laptop looks concentrated at screen with his"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/medium-shot-woman-working-laptop_23-2150491878.jpg",
-              imageAlt: "Medium shot woman working on laptop"
-            },
-            {
-              imageSrc: "https://img.b2bpic.net/free-photo/young-beautiful-businesswoman-discussing-work-issues-with-colleagues-by-video-call-using-laptop-coffee-break-courtyard-cafe_574295-3003.jpg",
-              imageAlt: "Young beautiful businesswoman discussing work issues with colleagues by video call using laptop during coffee break in courtyard of cafe"
-            }
-          ]}
-          introDelay={1.5}
+      {/* 2. HERO */}
+      <div id="hero" data-webild-section="HeroMockupComposition" data-webild-section-id="HeroMockupComposition-1" data-section="hero" data-scene>
+        <HeroMockupComposition
+          eyebrow="Website design for Dubai & the UAE"
+          headline="Make it easy for customers to choose you."
+          subheadline="MECLIN builds websites for restaurants, cafés and local businesses. Give customers one place to see what you offer, find you and book or message you."
+          primaryCtaText="Book a Free Call"
+          primaryCtaHref="#contact-arch-window"
+          secondaryCtaText="Explore the Demos"
+          secondaryCtaHref="#interactive-portfolio"
+          microcopy="Free 15-minute call · No obligation"
         />
       </div>
 
+      {/* 3. CUSTOMER QUESTIONS */}
+      <div id="customer-questions" data-webild-section="CustomerQuestionsSection" data-webild-section-id="CustomerQuestionsSection-1" data-section="customer-questions">
+        <CustomerQuestionsSection
+          eyebrow="Customer Questions"
+          heading="Give customers the answers they came for."
+          description="When a local UAE customer searches for your business, they want instant answers. Here is how MECLIN turns quick lookups into paying customers."
+        />
+      </div>
+
+      {/* 4. INTERACTIVE PORTFOLIO (Appears early on the page) */}
+      <div id="interactive-portfolio" data-webild-section="InteractivePortfolioSection" data-webild-section-id="InteractivePortfolioSection-1" data-section="interactive-portfolio">
+        <InteractivePortfolioSection />
+      </div>
+
+      {/* SERVICES & FEATURES */}
       <div id="services" data-webild-section="ServicesStackCards" data-webild-section-id="ServicesStackCards-1" data-section="services" data-scene>
         <ServicesStackCards
           title="Stop Losing Mobile Visitors"
@@ -130,6 +96,7 @@ export default function HomePage() {
         />
       </div>
 
+      {/* GALLERY & SAMPLES */}
       <div id="gallery" data-webild-section="GalleryArchTrack" data-webild-section-id="GalleryArchTrack-1" data-section="gallery" data-scene data-gallery>
         <GalleryArchTrack
           title="Mobile Ready Demos"
@@ -181,6 +148,7 @@ export default function HomePage() {
         />
       </div>
 
+      {/* PROCESS */}
       <div id="process-mask-steps" data-webild-section="ProcessMaskSteps" data-webild-section-id="ProcessMaskSteps-1" data-section="process-mask-steps">
         <ProcessMaskSteps
           label="Simple steps"
@@ -214,6 +182,7 @@ export default function HomePage() {
         />
       </div>
 
+      {/* STATEMENT CTA */}
       <div id="statement-dark-cta" data-webild-section="StatementDarkCta" data-webild-section-id="StatementDarkCta-1" data-section="statement-dark-cta">
         <StatementDarkCta
           label="Ready to grow?"
@@ -224,11 +193,12 @@ export default function HomePage() {
           }}
           secondaryButton={{
             text: "Explore Demos",
-            href: "#gallery"
+            href: "#interactive-portfolio"
           }}
         />
       </div>
 
+      {/* TESTIMONIALS */}
       <div id="testimonial" data-webild-section="TestimonialStackPortraits" data-webild-section-id="TestimonialStackPortraits-1" data-section="testimonial">
         <TestimonialStackPortraits
           label="Client reviews"
@@ -261,6 +231,7 @@ export default function HomePage() {
         />
       </div>
 
+      {/* FAQ */}
       <div id="faq" data-webild-section="FaqBlurAccordion" data-webild-section-id="FaqBlurAccordion-1" data-section="faq">
         <FaqBlurAccordion
           title="Before you book"
@@ -294,6 +265,7 @@ export default function HomePage() {
         />
       </div>
 
+      {/* CONTACT */}
       <div id="contact-arch-window" data-webild-section="ContactArchWindow" data-webild-section-id="ContactArchWindow-1" data-section="contact-arch-window">
         <ContactArchWindow
           title="Book a free 15-minute website review"
