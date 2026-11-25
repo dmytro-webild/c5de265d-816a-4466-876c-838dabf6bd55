@@ -1,0 +1,11 @@
+src/components/Layout.tsx
+src/components/sections/contact/ContactArchWindow.tsx
+src/components/sections/faq/FaqBlurAccordion.tsx
+src/components/sections/features/ProcessMaskSteps.tsx
+src/components/sections/features/ServicesStackCards.tsx
+src/components/sections/footer/FooterNewsletterReveal.tsx
+src/components/sections/gallery/GalleryArchTrack.tsx
+src/components/sections/hero/HeroArchWordmark.tsx
+src/components/sections/statement/StatementDarkCta.tsx
+src/components/sections/testimonial/TestimonialStackPortraits.tsx
+src/pages/HomePage.tsx

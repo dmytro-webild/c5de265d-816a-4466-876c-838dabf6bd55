@@ -1,0 +1,193 @@
+import { useId, useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+import { useKitMotion } from "@/components/kit/kitMotion";
+import Media from "@/components/kit/Media";
+
+const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
+
+type Link = { text: string; href?: string };
+
+type FooterNewsletterRevealProps = {
+  brand?: string;
+  logoSrc?: string;
+  socials?: Link[];
+  message?: string;
+  messageMuted?: string;
+  email?: string;
+  newsletterTitle?: string;
+  newsletterDescription?: string;
+  namePlaceholder?: string;
+  emailPlaceholder?: string;
+  submitText?: string;
+  successText?: string;
+  onSubscribe?: (data: { name: string; email: string }) => void;
+  links?: Link[];
+  copyright?: string;
+  ariaLabel?: string;
+  className?: string;
+};
+
+const FooterNewsletterReveal = ({
+  brand = "Studio",
+  logoSrc,
+  socials = [
+    { text: "BE", href: "#" },
+    { text: "IG", href: "#" },
+    { text: "X", href: "#" },
+  ],
+  message = "We would love to hear from you,",
+  messageMuted = "whether you have a project in mind or just want to say hi.",
+  email = "hello@studio.com",
+  newsletterTitle = "Join our newsletter",
+  newsletterDescription = "A monthly note on design, type and the work.",
+  namePlaceholder = "Name",
+  emailPlaceholder = "Email",
+  submitText = "Send",
+  successText = "Thanks, you are on the list.",
+  onSubscribe,
+  links = [
+    { text: "Projects", href: "#" },
+    { text: "About", href: "#" },
+    { text: "Blog", href: "#" },
+    { text: "Contact", href: "#" },
+  ],
+  copyright,
+  ariaLabel,
+  className,
+}: FooterNewsletterRevealProps) => {
+  const [sent, setSent] = useState(false);
+  const uid = useId();
+  const reduce = useReducedMotion();
+  const kit = useKitMotion();
+  const letters = Array.from(brand);
+  const hidden = { opacity: 0, y: kit.distance };
+  const shown = { opacity: 1, y: 0 };
+
+  const onSend = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const data = new FormData(e.currentTarget);
+    onSubscribe?.({ name: String(data.get("name") ?? ""), email: String(data.get("email") ?? "") });
+    setSent(true);
+  };
+
+  return (
+    <footer aria-label={ariaLabel ?? `${brand} footer`} className={cn("relative overflow-hidden bg-card text-card-foreground", className)}>
+      <div className="mx-auto flex w-[var(--container)] flex-col pt-[clamp(2rem,4vw,3rem)]">
+        <div className="flex items-start justify-between gap-6">
+          {logoSrc ? (
+            <Media src={logoSrc} alt={brand} loading="lazy" decoding="async" className="h-10 w-auto" />
+          ) : (
+            <p className="text-[length:var(--text-h3)] leading-none tracking-[var(--heading-tracking)] [font-family:var(--font-heading)] [font-weight:var(--heading-weight)]">{brand}</p>
+          )}
+          {socials.length > 0 && (
+            <ul className="flex flex-wrap justify-end gap-x-3 gap-y-1 text-[length:var(--text-small)] font-medium leading-[1.2]">
+              {socials.map((social, index) => (
+                <li key={index} className="flex items-center gap-3">
+                  {index > 0 && <p aria-hidden="true" className="text-muted-foreground">/</p>}
+                  <a href={social.href ?? "#"} className="whitespace-nowrap transition-opacity duration-[var(--dur-fast)] hover:opacity-60">
+                    {social.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div className="mt-[clamp(2rem,5vw,4rem)] grid grid-cols-1 gap-x-[var(--gap)] gap-y-14 lg:grid-cols-12">
+          <div className="flex min-w-0 flex-col gap-[clamp(2rem,4vw,3.5rem)] lg:col-span-6 xl:col-span-5">
+            <motion.div
+              initial={reduce ? false : hidden}
+              whileInView={shown}
+              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+              transition={{ duration: kit.base, ease: kit.ease }}
+              className="max-w-[18em] text-balance text-[length:var(--text-h3)] leading-[1.15] tracking-[-0.02em] [font-family:var(--font-heading)]"
+            >
+              <div className="inline">{message}</div>
+              {messageMuted && <> <div className="inline not-italic text-muted-foreground">{messageMuted}</div></>}
+            </motion.div>
+            {email && (
+              <motion.a
+                href={`mailto:${email}`}
+                initial={reduce ? false : hidden}
+                whileInView={shown}
+                viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+                transition={{ duration: kit.base, ease: kit.ease, delay: 0.1 }}
+                className="btn-link w-fit text-[length:var(--text-h3)] text-card-foreground [overflow-wrap:anywhere]"
+              >
+                {email}
+              </motion.a>
+            )}
+          </div>
+
+          <div className="flex min-w-0 flex-col lg:col-span-6 xl:col-span-5 xl:col-start-8">
+            <motion.h2
+              initial={reduce ? false : hidden}
+              whileInView={shown}
+              viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+              transition={{ duration: kit.base, ease: kit.ease, delay: 0.05 }}
+              className="max-w-[8em] text-balance text-[length:var(--text-h1)] leading-[var(--heading-leading)] tracking-[var(--heading-tracking)] [font-weight:var(--heading-weight)] [overflow-wrap:anywhere]"
+            >
+              {newsletterTitle}
+            </motion.h2>
+            {newsletterDescription && <p className="mt-3 text-[length:var(--text-small)] font-medium leading-[1.4] text-muted-foreground">{newsletterDescription}</p>}
+            {sent ? (
+              <p role="status" className="mt-8 text-[length:var(--text-body-lg)] leading-[1.35]">{successText}</p>
+            ) : (
+              <form onSubmit={onSend} className="mt-6 flex flex-col gap-4">
+                <label htmlFor={`${uid}-name`} className="sr-only">{namePlaceholder}</label>
+                <input id={`${uid}-name`} name="name" autoComplete="name" placeholder={namePlaceholder} className="w-full min-w-0 border-b border-foreground/40 bg-transparent py-3 text-[length:var(--text-body)] outline-none transition-colors placeholder:text-muted-foreground focus:border-foreground" />
+                <label htmlFor={`${uid}-email`} className="sr-only">{emailPlaceholder}</label>
+                <input id={`${uid}-email`} required type="email" name="email" autoComplete="email" placeholder={emailPlaceholder} className="w-full min-w-0 border-b border-foreground/40 bg-transparent py-3 text-[length:var(--text-body)] outline-none transition-colors placeholder:text-muted-foreground focus:border-foreground" />
+                <button type="submit" className="btn-primary mt-2 w-full uppercase">
+                  <p className="btn-label">{submitText}</p>
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-[clamp(4rem,9vw,8rem)] flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+          {links.length > 0 && (
+            <nav aria-label="Footer">
+              <ul className="flex flex-wrap gap-x-8 gap-y-2 text-[length:var(--text-body)]">
+                {links.map((link, index) => (
+                  <li key={index}>
+                    <a href={link.href ?? "#"} className="whitespace-nowrap transition-opacity duration-[var(--dur-fast)] hover:opacity-60">
+                      {link.text}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
+          <p className="text-[length:var(--text-small)] text-muted-foreground">{copyright ?? `© ${new Date().getFullYear()} ${brand}`}</p>
+        </div>
+
+        <div className="@container mt-[clamp(1.5rem,3vw,2.5rem)] w-full">
+          <div
+            aria-hidden="true"
+            style={{ fontSize: `calc(100cqw / ${Math.max(3, letters.length * 0.62).toFixed(2)})` }}
+            className="whitespace-nowrap pb-[0.04em] text-center leading-[0.82] tracking-[-0.05em] [font-family:var(--font-heading)] [font-weight:var(--heading-weight)]"
+          >
+            {letters.map((letter, i) => (
+              <motion.div
+                key={i}
+                initial={reduce ? false : { opacity: 0, y: "0.25em" }}
+                whileInView={shown}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: kit.slow, ease: kit.ease, delay: i * 0.05 }}
+                className="inline-block"
+              >
+                {letter === " " ? " " : letter}
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default FooterNewsletterReveal;
