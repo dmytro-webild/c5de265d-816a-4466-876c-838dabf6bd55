@@ -261,7 +261,7 @@ const ContactArchWindow = ({
   );
 
   return (
-    <section ref={ref} id="contact-section" aria-label={ariaLabel ?? title} className={cn("relative bg-[#10111C] py-[var(--section-space)] text-[#F7F4EE] border-t border-[#232538]", className)}>
+    <section ref={ref} id="contact-section" aria-label={ariaLabel ?? title} className={cn("relative bg-[#FAF9F5] py-[var(--section-space)] text-[#1B1D1A] border-t border-[#E5E2D9]", className)}>
       <div className="mx-auto grid w-[var(--container)] grid-cols-1 gap-x-[var(--gap)] gap-y-12 lg:grid-cols-12">
         <div className="lg:col-span-5 xl:col-span-5">{heading}</div>
 

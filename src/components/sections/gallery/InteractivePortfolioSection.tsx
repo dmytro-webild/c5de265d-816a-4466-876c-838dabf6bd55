@@ -86,14 +86,14 @@ export default function InteractivePortfolioSection() {
       location: "DIFC Gate Avenue, Dubai",
       image: "https://img.b2bpic.net/free-photo/body-scrub-dried-shell-essential-oil-soap-bar-napkin-smartphone-black-background_23-2147971434.jpg",
       icon: Sparkle,
-      color: "bg-purple-600",
+      color: "bg-[#3D5139]",
       description: "Explore beauty treatments, transparent service packages, and request a personalized quote.",
       features: ["Treatment Catalog", "Instant Quote Form", "Portfolio Showcase"]
     }
   ];
 
   return (
-    <section id="interactive-portfolio" className="py-20 lg:py-28 bg-[#EEEAF7] text-[#10111C] border-b border-[#E0D9ED]">
+    <section id="interactive-portfolio" className="py-20 lg:py-28 bg-[#EEF1E9] text-[#1B1D1A] border-b border-[#D5DAD0]">
       <div className="w-[min(100%-2*var(--gutter),var(--max-w))] mx-auto">
         
         {/* Section Header */}
@@ -643,27 +643,27 @@ export default function InteractivePortfolioSection() {
               {activeDemo === "noor" && (
                 <div className="p-6 bg-slate-50 dark:bg-slate-950 max-h-[75vh] overflow-y-auto">
                   <div className="flex items-center justify-between pb-3 mb-4 border-b border-slate-200 dark:border-slate-800 text-xs">
-                    <span className="font-mono text-purple-600 dark:text-purple-400 font-bold">Tue - Sun: 10:00 AM - 08:00 PM</span>
+                    <span className="font-mono text-[#3D5139] font-bold">Tue - Sun: 10:00 AM - 08:00 PM</span>
                     <span className="font-mono text-slate-500">DIFC Gate Avenue</span>
                   </div>
 
                   {noorSubmitted ? (
-                    <div className="text-center py-8 bg-purple-50 dark:bg-purple-950/40 border border-purple-200 dark:border-purple-800 rounded-xl p-6">
-                      <CheckCircle className="w-12 h-12 text-purple-500 mx-auto mb-3" />
-                      <h4 className="text-lg font-bold text-purple-900 dark:text-purple-200 mb-1">Quote Request Sent!</h4>
-                      <p className="text-xs text-purple-700 dark:text-purple-300 mb-4">
+                    <div className="text-center py-8 bg-[#EEF1E9] border border-[#3D5139]/30 rounded-xl p-6">
+                      <CheckCircle className="w-12 h-12 text-[#3D5139] mx-auto mb-3" />
+                      <h4 className="text-lg font-bold text-[#1B1D1A] mb-1">Quote Request Sent!</h4>
+                      <p className="text-xs text-[#5C605A] mb-4">
                         Inquiry for {noorService} submitted successfully.
                       </p>
                       <button
                         onClick={() => setNoorSubmitted(false)}
-                        className="text-xs text-purple-800 dark:text-purple-300 underline font-semibold"
+                        className="text-xs text-[#3D5139] underline font-semibold"
                       >
                         Reset Demo Form
                       </button>
                     </div>
                   ) : (
                     <div className="space-y-4">
-                      <h4 className="text-xs font-mono uppercase font-bold text-purple-600 dark:text-purple-400">Treatment &amp; Quote Inquiry</h4>
+                      <h4 className="text-xs font-mono uppercase font-bold text-[#3D5139]">Treatment &amp; Quote Inquiry</h4>
                       
                       <div>
                         <label className="block text-xs font-mono text-slate-500 mb-1">Select Service</label>
@@ -680,7 +680,7 @@ export default function InteractivePortfolioSection() {
 
                       <button
                         onClick={() => setNoorSubmitted(true)}
-                        className="w-full py-3 bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-2"
+                        className="w-full py-3 bg-[#3D5139] hover:bg-[#2F402B] text-white font-bold text-xs rounded-lg transition-colors flex items-center justify-center gap-2"
                       >
                         <span>Request Customized Quote</span>
                         <ChevronRight className="w-4 h-4" />

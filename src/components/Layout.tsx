@@ -52,7 +52,7 @@ export default function Layout() {
       <main className="flex-grow" data-button="default" data-card="default" data-pattern="none">
         <Outlet />
       </main>
-      <footer data-webild-section="Footer" data-section="footer" className="relative z-10 flex min-h-svh flex-col justify-end bg-[#10111C] text-[#F7F4EE] pt-[clamp(4rem,9svh,6rem)]">
+      <footer data-webild-section="Footer" data-section="footer" className="relative z-10 flex min-h-svh flex-col justify-end bg-[#1B1D1A] text-[#FAF9F5] pt-[clamp(4rem,9svh,6rem)]">
         <FooterNewsletterReveal
           brand="MECLIN"
           socials={[
