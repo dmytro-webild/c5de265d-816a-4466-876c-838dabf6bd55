@@ -10,20 +10,20 @@ export default function Layout() {
           brand="MECLIN"
           navItems={[
             {
+              name: "Questions",
+              href: "#customer-questions"
+            },
+            {
+              name: "Demos",
+              href: "#interactive-portfolio"
+            },
+            {
               name: "Services",
               href: "#services"
             },
             {
-              name: "Work",
-              href: "#gallery"
-            },
-            {
               name: "Process",
               href: "#process-mask-steps"
-            },
-            {
-              name: "Pricing",
-              href: "#contact-arch-window"
             },
             {
               name: "FAQ",
@@ -77,16 +77,16 @@ export default function Layout() {
           submitText="Subscribe"
           links={[
             {
+              text: "Questions",
+              href: "#customer-questions"
+            },
+            {
+              text: "Demos",
+              href: "#interactive-portfolio"
+            },
+            {
               text: "Services",
               href: "#services"
-            },
-            {
-              text: "Work",
-              href: "#gallery"
-            },
-            {
-              text: "Pricing",
-              href: "#contact-arch-window"
             },
             {
               text: "FAQ",
@@ -98,9 +98,6 @@ export default function Layout() {
             }
           ]}
           copyright="© 2026 MECLIN. Al Serkal Avenue, Al Quoz, Dubai, UAE."
-          namePlaceholder="Your name"
-          emailPlaceholder="Your email address"
-          successText="Thank you for subscribing. We will be in touch soon."
         />
       </footer>
     </div>
