@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import useMenuDialog from "@/components/kit/useMenuDialog";
 import { useKitMotion } from "@/components/kit/kitMotion";
@@ -27,46 +27,6 @@ const DEFAULT_ITEMS: NavItem[] = [
   { name: "Contact", href: "#contact" },
 ];
 
-const useDarkUnder = (logoRef: RefObject<HTMLElement | null>, menuRef: RefObject<HTMLElement | null>) => {
-  const [dark, setDark] = useState({ logo: false, menu: false });
-  useEffect(() => {
-    let observers: IntersectionObserver[] = [];
-    const watch = () => {
-      observers.forEach((o) => o.disconnect());
-      const targets = document.querySelectorAll("[data-section], [data-section] > *, [data-tone='deep'], [data-nav-dark]");
-      observers = (["logo", "menu"] as const).flatMap((key) => {
-        const el = (key === "logo" ? logoRef : menuRef).current;
-        if (!el) return [];
-        const r = el.getBoundingClientRect();
-        const x = Math.round(r.left + r.width / 2);
-        const y = Math.round(r.top + r.height / 2);
-        const hits = new Set<Element>();
-        const io = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((e) => (e.isIntersecting ? hits.add(e.target) : hits.delete(e.target)));
-            let top: Element | undefined;
-            hits.forEach((h) => {
-              if (!top || top.compareDocumentPosition(h) & Node.DOCUMENT_POSITION_FOLLOWING) top = h;
-            });
-            const on = !!top?.matches("[data-tone='deep'], [data-nav-dark]");
-            setDark((prev) => (prev[key] === on ? prev : { ...prev, [key]: on }));
-          },
-          { root: document, rootMargin: `${-y}px ${x + 1 - window.innerWidth}px ${y + 1 - window.innerHeight}px ${-x}px` },
-        );
-        targets.forEach((t) => io.observe(t));
-        return [io];
-      });
-    };
-    watch();
-    window.addEventListener("resize", watch);
-    return () => {
-      observers.forEach((o) => o.disconnect());
-      window.removeEventListener("resize", watch);
-    };
-  }, [logoRef, menuRef]);
-  return dark;
-};
-
 const NavbarCrossMenu = ({
   brand = "Studio",
   logoSrc,
@@ -87,7 +47,6 @@ const NavbarCrossMenu = ({
   const menuRef = useRef<HTMLButtonElement>(null);
   const close = () => setOpen(false);
   useMenuDialog(open, panelRef, close);
-  const dark = useDarkUnder(logoRef, menuRef);
   const glyph = monogram ?? (Array.from(brand)[0] ?? "").toLowerCase();
 
   const rise = (delay: number) =>
@@ -103,14 +62,14 @@ const NavbarCrossMenu = ({
 
   return (
     <>
-      <header className="fixed top-0 inset-x-0 z-[80] transition-colors duration-300">
+      <header className="fixed top-0 inset-x-0 z-[80] bg-[#FAF9F5] border-b border-[#E5E2D9] transition-colors duration-300">
         <div className="mx-auto flex h-[4.5rem] w-[var(--container)] items-center justify-between">
           <a
             ref={logoRef}
             href="#"
             aria-label={brand}
             data-nav-chrome
-            className={`flex items-center transition-colors duration-500 ${open ? "text-background" : dark.logo ? "text-deep-foreground" : "text-foreground"}`}
+            className={`flex items-center transition-colors duration-500 ${open ? "text-background" : "text-[#1B1D1A]"}`}
           >
             <motion.div {...intro(0)} className="flex items-center">
               {logoSrc ? (
@@ -129,7 +88,7 @@ const NavbarCrossMenu = ({
                   <li key={`${i}-${item.href}`}>
                     <a
                       href={item.href}
-                      className={`transition-colors duration-200 hover:text-accent ${dark.logo ? "text-deep-foreground/80 hover:text-deep-foreground" : "text-foreground/80 hover:text-foreground"}`}
+                      className="text-[#1B1D1A]/80 hover:text-[#3D5139] transition-colors duration-200"
                     >
                       {item.name}
                     </a>
@@ -139,7 +98,7 @@ const NavbarCrossMenu = ({
             </nav>
             <a
               href="#contact-arch-window"
-              className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
+              className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-full bg-[#3D5139] text-white hover:bg-[#2F402B] transition-colors shadow-sm"
             >
               Book 15-Min Call
             </a>
@@ -152,7 +111,7 @@ const NavbarCrossMenu = ({
             aria-expanded={open}
             aria-label={open ? closeText : menuText}
             onClick={() => setOpen((value) => !value)}
-            className={`flex md:hidden size-[2.75rem] items-center justify-center transition-colors duration-500 ${open ? "text-background" : dark.menu ? "text-deep-foreground" : "text-foreground"}`}
+            className={`flex md:hidden size-[2.75rem] items-center justify-center transition-colors duration-500 ${open ? "text-background" : "text-[#1B1D1A]"}`}
           >
             <motion.div {...intro(0.08)} aria-hidden="true" className="flex items-center justify-center">
               <div

@@ -69,7 +69,7 @@ const FooterNewsletterReveal = ({
   };
 
   return (
-    <footer aria-label={ariaLabel ?? `${brand} footer`} className={cn("relative overflow-hidden bg-[#10111C] text-[#F7F4EE]", className)}>
+    <footer aria-label={ariaLabel ?? `${brand} footer`} className={cn("relative overflow-hidden bg-[#1B1D1A] text-[#FAF9F5]", className)}>
       <div className="mx-auto flex w-[var(--container)] flex-col pt-[clamp(2rem,4vw,3rem)]">
         <div className="flex items-start justify-between gap-6">
           {logoSrc ? (
