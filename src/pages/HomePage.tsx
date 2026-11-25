@@ -1,12 +1,13 @@
 import HeroMockupComposition from "@/components/sections/hero/HeroMockupComposition";
 import CustomerQuestionsSection from "@/components/sections/features/CustomerQuestionsSection";
 import InteractivePortfolioSection from "@/components/sections/gallery/InteractivePortfolioSection";
+import IndustriesSection from "@/components/sections/features/IndustriesSection";
 import ServicesStackCards from "@/components/sections/features/ServicesStackCards";
-import GalleryArchTrack from "@/components/sections/gallery/GalleryArchTrack";
 import ProcessMaskSteps from "@/components/sections/features/ProcessMaskSteps";
-import StatementDarkCta from "@/components/sections/statement/StatementDarkCta";
-import TestimonialStackPortraits from "@/components/sections/testimonial/TestimonialStackPortraits";
+import SocialProofSection from "@/components/sections/testimonial/SocialProofSection";
+import PackagesSection from "@/components/sections/pricing/PackagesSection";
 import FaqBlurAccordion from "@/components/sections/faq/FaqBlurAccordion";
+import StatementDarkCta from "@/components/sections/statement/StatementDarkCta";
 import ContactArchWindow from "@/components/sections/contact/ContactArchWindow";
 import LoaderArchRise from "@/components/loaders/LoaderArchRise";
 
@@ -15,7 +16,7 @@ export default function HomePage() {
     <>
       <LoaderArchRise label="MECLIN Web Design, Dubai" />
 
-      {/* 2. HERO */}
+      {/* 1. HERO */}
       <div id="hero" data-webild-section="HeroMockupComposition" data-webild-section-id="HeroMockupComposition-1" data-section="hero" data-scene>
         <HeroMockupComposition
           eyebrow="Website design for Dubai & the UAE"
@@ -29,7 +30,7 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 3. CUSTOMER QUESTIONS */}
+      {/* 2. CUSTOMER QUESTIONS */}
       <div id="customer-questions" data-webild-section="CustomerQuestionsSection" data-webild-section-id="CustomerQuestionsSection-1" data-section="customer-questions">
         <CustomerQuestionsSection
           eyebrow="Customer Questions"
@@ -38,155 +39,157 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 4. INTERACTIVE PORTFOLIO (Appears early on the page) */}
+      {/* 3. INTERACTIVE PORTFOLIO */}
       <div id="interactive-portfolio" data-webild-section="InteractivePortfolioSection" data-webild-section-id="InteractivePortfolioSection-1" data-section="interactive-portfolio">
         <InteractivePortfolioSection />
       </div>
 
-      {/* SERVICES & FEATURES */}
+      {/* 4. INDUSTRIES SECTION */}
+      <div id="industries" data-webild-section="IndustriesSection" data-webild-section-id="IndustriesSection-1" data-section="industries">
+        <IndustriesSection
+          label="Sectors & Outcomes"
+          title="What should your customers be able to do?"
+          description="Show clear, sector-specific outcomes so every visitor takes action instantly on mobile."
+        />
+      </div>
+
+      {/* 5. SERVICES SECTION */}
       <div id="services" data-webild-section="ServicesStackCards" data-webild-section-id="ServicesStackCards-1" data-section="services" data-scene>
         <ServicesStackCards
-          title="Stop Losing Mobile Visitors"
+          title="A website you can use from day one."
+          subtitle="Complete design, local discovery, and customer conversion tools built specifically for Dubai & UAE businesses."
           cta={{
-            text: "Book a Call",
+            text: "Book a Free Call",
             href: "#contact-arch-window"
           }}
           items={[
             {
-              title: "Instant Digital Menus",
-              description: "Replace slow PDF downloads with crisp, mobile-friendly menus that load instantly on any smartphone in Dubai.",
-              tags: [
-                "Mobile First",
-                "Fast Loading"
-              ],
+              title: "Custom & Mobile Design",
+              description: "Tailored visual design and mobile-friendly layouts built for fast-loading performance on all smartphones.",
+              tags: ["Custom Design", "Mobile First", "Fast Loading"],
               imageSrc: "https://img.b2bpic.net/free-photo/front-view-delicious-pie-with-strawberries-macarons-cup-tea-blue-surface-cake-biscuit-sweet-candy-pie-cookie_140725-66726.jpg",
-              imageAlt: "Front view delicious pie with strawberries macarons and cup of tea on blue surface cake biscuit sweet candy pie cookie"
+              imageAlt: "Digital menu preview"
             },
             {
-              title: "One-Tap Direct Contact",
-              description: "Connect visitors straight to your WhatsApp or phone line without making them copy numbers or hunt through footers.",
-              tags: [
-                "WhatsApp",
-                "Click To Call"
-              ],
-              imageSrc: "https://img.b2bpic.net/free-photo/high-angle-hands-holding-smartphone_23-2150671567.jpg",
-              imageAlt: "High angle hands holding smartphone"
-            },
-            {
-              title: "Clear Hours & Directions",
-              description: "Put opening hours, map location, and parking details front and center so customers reach your front door effortlessly.",
-              tags: [
-                "Google Maps",
-                "Location"
-              ],
+              title: "Local Search & Discovery",
+              description: "Basic search setup, Google Maps directions, and direct links to your existing Google customer reviews.",
+              tags: ["Google Maps", "Basic Search Setup", "Reviews Link"],
               imageSrc: "https://img.b2bpic.net/free-photo/we-re-back-now-open-cafe-sign-after-covid-19-pandemic_53876-165460.jpg",
-              imageAlt: "‘We’re back, now open’ cafe sign after covid-19 pandemic"
+              imageAlt: "Google Maps and location setup"
             },
             {
-              title: "Frictionless Table Booking",
-              description: "Give diners a direct path to reserve tables or request quotes without navigating complex software or slow forms.",
-              tags: [
-                "Reservations",
-                "Conversions"
-              ],
-              imageSrc: "https://img.b2bpic.net/free-photo/medium-shot-friends-posing-together_23-2149073438.jpg",
-              imageAlt: "Medium shot friends posing together"
+              title: "Direct Conversion Actions",
+              description: "Prominent WhatsApp chat buttons, tap-to-call actions, and connections to booking or ordering platforms where suitable.",
+              tags: ["WhatsApp", "Tap-To-Call", "Bookings"],
+              imageSrc: "https://img.b2bpic.net/free-photo/high-angle-hands-holding-smartphone_23-2150671567.jpg",
+              imageAlt: "WhatsApp and direct call"
             }
           ]}
+          scopeNotice={{
+            title: "Flexible Scope & Handover Process",
+            text: "Hosting, ongoing updates, extra pages, multi-location support, and English–Arabic dual language layouts can be quoted based on scope. Where you manage edits, we provide a full handover guide explaining how to update key details.",
+            details: [
+              "Hosting & ongoing updates option",
+              "Multi-location support available",
+              "English–Arabic layout on request",
+              "Step-by-step editing handover guide"
+            ]
+          }}
         />
       </div>
 
-      {/* GALLERY & SAMPLES */}
-      <div id="gallery" data-webild-section="GalleryArchTrack" data-webild-section-id="GalleryArchTrack-1" data-section="gallery" data-scene data-gallery>
-        <GalleryArchTrack
-          title="Mobile Ready Demos"
-          label="Live Demos"
-          items={[
-            {
-              title: "The Coffee Lab",
-              date: "_01.26",
-              imageSrc: "https://img.b2bpic.net/free-photo/high-angle-coffee-making-with-machine_23-2148865579.jpg",
-              imageAlt: "High angle coffee making with machine",
-              href: "#contact-arch-window"
-            },
-            {
-              title: "Sunlight Spa",
-              date: "_02.26",
-              imageSrc: "https://img.b2bpic.net/free-photo/front-view-eco-friendly-cleaning-products-set-with-soap-cotton-swabs_23-2148818490.jpg",
-              imageAlt: "Front view of eco-friendly cleaning products set with soap and cotton swabs",
-              href: "#contact-arch-window"
-            },
-            {
-              title: "FitPulse Gym",
-              date: "_03.26",
-              imageSrc: "https://img.b2bpic.net/free-photo/still-life-foam-roller_23-2151817404.jpg",
-              imageAlt: "Still life of foam roller",
-              href: "#contact-arch-window"
-            },
-            {
-              title: "Coastal Dental",
-              date: "_04.26",
-              imageSrc: "https://img.b2bpic.net/free-photo/closeup-dental-tooth-intruments-medical-stomatology-orthodontic-office_482257-12296.jpg",
-              imageAlt: "Closeup of dental tooth intruments in medical stomatology orthodontic office",
-              href: "#contact-arch-window"
-            },
-            {
-              title: "Al Quoz Bistro",
-              date: "_05.26",
-              imageSrc: "https://img.b2bpic.net/free-photo/vegetable-stew-with-meat-corn-pieces-chili-pepper-vegetables-basilic-parsley-white-plate_114579-115.jpg",
-              imageAlt: "Vegetable stew with meat, corn pieces, chili pepper and vegetables, basilic, parsley in white plate. ",
-              href: "#contact-arch-window"
-            },
-            {
-              title: "Repair Masters",
-              date: "_06.26",
-              imageSrc: "https://img.b2bpic.net/free-photo/closeup-shot-hummer-tools-stairs-house-construction_181624-28753.jpg",
-              imageAlt: "Closeup shot of a hummer and tools on the stairs during the house construction",
-              href: "#contact-arch-window"
-            }
-          ]}
-        />
-      </div>
-
-      {/* PROCESS */}
+      {/* 6. FOUR-STEP PROCESS TIMELINE */}
       <div id="process-mask-steps" data-webild-section="ProcessMaskSteps" data-webild-section-id="ProcessMaskSteps-1" data-section="process-mask-steps">
         <ProcessMaskSteps
-          label="Simple steps"
+          label="Simple 4-Step Timeline"
           title="From first call to live website"
+          description="MECLIN confirms the exact scope, deliverable list, and timeline in writing before starting."
           items={[
             {
-              title: "15-minute review",
-              description: "We look at your current website or social links to spot fast conversion fixes.",
+              title: "1. Book a call",
+              description: "We review how customers find you and what you want them to do during a focused 15-minute call.",
               imageSrc: "https://img.b2bpic.net/free-photo/handsome-model-african-young-man-working-laptop-computer-outside-terrace-european-city-coffee-shop_496169-1892.jpg",
-              imageAlt: "Handsome model, african young man working on laptop computer outside terrace in an european city coffee shop."
+              imageAlt: "Book a call"
             },
             {
-              title: "Clear outline & preview",
-              description: "We design mobile-first pages showing your menu, hours, and direct booking actions.",
+              title: "2. We design",
+              description: "You share your logo, photos, business details and any menu or services list while we craft your custom pages.",
               imageSrc: "https://img.b2bpic.net/free-photo/close-up-two-dads-looking-baby-ultrasounds_23-2149184731.jpg",
-              imageAlt: "Close up on two dads looking at baby ultrasounds"
+              imageAlt: "We design"
             },
             {
-              title: "Fast development",
-              description: "We build fast, responsive layouts optimized for local searchers on smartphones.",
+              title: "3. You approve",
+              description: "Review the live draft directly on your phone, test every link, and share feedback before launch.",
               imageSrc: "https://img.b2bpic.net/free-photo/young-guy-with-beard-works-cafe-freelancer-uses-laptop-does-project_1296-732.jpg",
-              imageAlt: "young guy with a beard works in a cafe, freelancer uses a laptop, does a project"
+              imageAlt: "You approve"
             },
             {
-              title: "Launch & guidance",
-              description: "We test every direct call button, publish your site, and walk you through simple updates.",
+              title: "4. We launch",
+              description: "We test key links, connect your domain, and walk you through the site and its accounts with a full handover.",
               imageSrc: "https://img.b2bpic.net/free-photo/pretty-woman-making-coffee-cafe_23-2147775855.jpg",
-              imageAlt: "Pretty woman making coffee in cafe"
+              imageAlt: "We launch"
             }
           ]}
         />
       </div>
 
-      {/* STATEMENT CTA */}
-      <div id="statement-dark-cta" data-webild-section="StatementDarkCta" data-webild-section-id="StatementDarkCta-1" data-section="statement-dark-cta">
+      {/* 7. HIDDEN SOCIAL PROOF COMPONENTS */}
+      <div id="social-proof" data-webild-section="SocialProofSection" data-webild-section-id="SocialProofSection-1" data-section="social-proof">
+        <SocialProofSection
+          label="Verified Social Proof"
+          title="Trusted by local businesses across Dubai & UAE"
+          description="Real local business owners who upgraded to dedicated conversion websites."
+        />
+      </div>
+
+      {/* 8. THREE-TIER PACKAGES SECTION */}
+      <div id="packages" data-webild-section="PackagesSection" data-webild-section-id="PackagesSection-1" data-section="packages">
+        <PackagesSection
+          label="Transparent Packages"
+          title="Three packages built for local UAE businesses"
+          description="Clear pricing placeholders in AED with confirmed scope before work begins."
+        />
+      </div>
+
+      {/* 9. FAQ ACCORDION */}
+      <div id="faq" data-webild-section="FaqBlurAccordion" data-webild-section-id="FaqBlurAccordion-1" data-section="faq">
+        <FaqBlurAccordion
+          title="Before you book"
+          description="Common questions about our web design process, packages, and handover."
+          items={[
+            {
+              title: "What happens during the 15-minute call?",
+              description: "We review how customers find you, evaluate your current site or Google listing, and spot immediate conversion fixes."
+            },
+            {
+              title: "How fast can our new website launch?",
+              description: "Most local business sites launch within 2 to 4 weeks once menu, photos, and business details are received."
+            },
+            {
+              title: "What do I need to prepare before starting?",
+              description: "Just share your logo, photos, business details, and any menu or service list. MECLIN handles the rest."
+            },
+            {
+              title: "What are your package prices?",
+              description: "Packages start at AED 2,500 for single-page sites and AED 5,000 for full multi-page builds, with scope confirmed before starting."
+            },
+            {
+              title: "Do you help align our Google Maps profile?",
+              description: "Yes. We make sure your Google Maps listing links directly to your website so customers find your phone number and location instantly."
+            },
+            {
+              title: "What about hosting and updates after launch?",
+              description: "Hosting, ongoing updates, extra pages, multi-location support, and English–Arabic layouts are available and quoted based on scope, along with a full handover guide."
+            }
+          ]}
+        />
+      </div>
+
+      {/* 10. DARK NAVY FINAL CTA SECTION */}
+      <div id="final-cta" data-webild-section="StatementDarkCta" data-webild-section-id="StatementDarkCta-1" data-section="final-cta">
         <StatementDarkCta
           label="Ready to grow?"
-          title="Give UAE customers a clear way to book"
+          title="Make it easy for customers to choose you"
           primaryButton={{
             text: "Book a Free Call",
             href: "#contact-arch-window"
@@ -198,74 +201,7 @@ export default function HomePage() {
         />
       </div>
 
-      {/* TESTIMONIALS */}
-      <div id="testimonial" data-webild-section="TestimonialStackPortraits" data-webild-section-id="TestimonialStackPortraits-1" data-section="testimonial">
-        <TestimonialStackPortraits
-          label="Client reviews"
-          items={[
-            {
-              quote: "Our customers finally find our menu instantly on mobile without downloading slow PDFs.",
-              name: "Jordan Walsh",
-              role: "Owner, Dubai Bistro",
-              imageSrc: "https://img.b2bpic.net/free-photo/young-smiling-blonde-male-barber-uniform-stands-with-raised-hands-isolated-green-space-with-copy-space_141793-60124.jpg"
-            },
-            {
-              quote: "WhatsApp inquiries doubled within two weeks of launching our clear new website.",
-              name: "Leah Sullivan",
-              role: "Manager, Marina Spa",
-              imageSrc: "https://img.b2bpic.net/free-photo/beautiful-business-woman-portrait_23-2149280698.jpg"
-            },
-            {
-              quote: "Clean, fast, and completely focused on getting UAE clients to call us directly.",
-              name: "Kevin Reid",
-              role: "Founder, Jumeirah Repair",
-              imageSrc: "https://img.b2bpic.net/free-photo/thoughtful-bearded-project-manager-working-home_273609-20290.jpg"
-            },
-            {
-              quote: "The free review call showed us exactly why visitors were leaving our old site.",
-              name: "Hannah Graham",
-              role: "Director, Al Quoz Fitness",
-              imageSrc: "https://img.b2bpic.net/free-photo/medium-shot-smiley-stewardess-posing_23-2150197260.jpg"
-            }
-          ]}
-        />
-      </div>
-
-      {/* FAQ */}
-      <div id="faq" data-webild-section="FaqBlurAccordion" data-webild-section-id="FaqBlurAccordion-1" data-section="faq">
-        <FaqBlurAccordion
-          title="Before you book"
-          description="Common questions about our web design process."
-          items={[
-            {
-              title: "What happens during the 15-minute call?",
-              description: "Bring your current site, Google Maps listing, or Instagram profile. We share one practical fix to get more bookings."
-            },
-            {
-              title: "How fast can our new website launch?",
-              description: "Most local business sites are built and launched in two to four weeks."
-            },
-            {
-              title: "What do I need to prepare before starting?",
-              description: "Just bring your menu, logo, or service list. We handle the design layout and mobile setup."
-            },
-            {
-              title: "What are your package prices?",
-              description: "Our transparent packages start at AED 2,500 for single-page business sites and AED 5,000 for full multi-page builds."
-            },
-            {
-              title: "Do you help align our Google Maps profile?",
-              description: "Yes. We make sure your Google Maps listing links directly to your website so customers find your phone number and location instantly."
-            },
-            {
-              title: "Do you offer support after launch?",
-              description: "We ensure your contact details, opening hours, and menu stay accurate whenever your business updates them."
-            }
-          ]}
-        />
-      </div>
-
-      {/* CONTACT */}
+      {/* CONTACT FORM */}
       <div id="contact-arch-window" data-webild-section="ContactArchWindow" data-webild-section-id="ContactArchWindow-1" data-section="contact-arch-window">
         <ContactArchWindow
           title="Book a free 15-minute website review"
