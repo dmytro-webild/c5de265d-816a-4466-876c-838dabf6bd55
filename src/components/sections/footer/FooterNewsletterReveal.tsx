@@ -24,6 +24,7 @@ type FooterNewsletterRevealProps = {
   successText?: string;
   onSubscribe?: (data: { name: string; email: string }) => void;
   links?: Link[];
+  privacyHref?: string;
   copyright?: string;
   ariaLabel?: string;
   className?: string;
@@ -32,11 +33,7 @@ type FooterNewsletterRevealProps = {
 const FooterNewsletterReveal = ({
   brand = "Studio",
   logoSrc,
-  socials = [
-    { text: "BE", href: "#" },
-    { text: "IG", href: "#" },
-    { text: "X", href: "#" },
-  ],
+  socials = [],
   message = "We would love to hear from you,",
   messageMuted = "whether you have a project in mind or just want to say hi.",
   email = "hello@studio.com",
@@ -47,12 +44,8 @@ const FooterNewsletterReveal = ({
   submitText = "Send",
   successText = "Thanks, you are on the list.",
   onSubscribe,
-  links = [
-    { text: "Projects", href: "#" },
-    { text: "About", href: "#" },
-    { text: "Blog", href: "#" },
-    { text: "Contact", href: "#" },
-  ],
+  links = [],
+  privacyHref = "#privacy-notice",
   copyright,
   ariaLabel,
   className,
@@ -64,6 +57,10 @@ const FooterNewsletterReveal = ({
   const letters = Array.from(brand);
   const hidden = { opacity: 0, y: kit.distance };
   const shown = { opacity: 1, y: 0 };
+
+  // Keep unconfigured links hidden per requirements
+  const activeSocials = socials.filter((s) => s.href && s.href !== "#" && s.href !== "");
+  const activeLinks = links.filter((l) => l.href && l.href !== "");
 
   const onSend = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -81,12 +78,12 @@ const FooterNewsletterReveal = ({
           ) : (
             <p className="text-[length:var(--text-h3)] leading-none tracking-[var(--heading-tracking)] [font-family:var(--font-heading)] [font-weight:var(--heading-weight)]">{brand}</p>
           )}
-          {socials.length > 0 && (
+          {activeSocials.length > 0 && (
             <ul className="flex flex-wrap justify-end gap-x-3 gap-y-1 text-[length:var(--text-small)] font-medium leading-[1.2]">
-              {socials.map((social, index) => (
+              {activeSocials.map((social, index) => (
                 <li key={index} className="flex items-center gap-3">
                   {index > 0 && <p aria-hidden="true" className="text-muted-foreground">/</p>}
-                  <a href={social.href ?? "#"} className="whitespace-nowrap transition-opacity duration-[var(--dur-fast)] hover:opacity-60">
+                  <a href={social.href} target="_blank" rel="noopener noreferrer" className="whitespace-nowrap transition-opacity duration-[var(--dur-fast)] hover:opacity-60">
                     {social.text}
                   </a>
                 </li>
@@ -149,19 +146,24 @@ const FooterNewsletterReveal = ({
         </div>
 
         <div className="mt-[clamp(4rem,9vw,8rem)] flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
-          {links.length > 0 && (
-            <nav aria-label="Footer">
-              <ul className="flex flex-wrap gap-x-8 gap-y-2 text-[length:var(--text-body)]">
-                {links.map((link, index) => (
-                  <li key={index}>
-                    <a href={link.href ?? "#"} className="whitespace-nowrap transition-opacity duration-[var(--dur-fast)] hover:opacity-60">
-                      {link.text}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          )}
+          <nav aria-label="Footer">
+            <ul className="flex flex-wrap items-center gap-x-8 gap-y-2 text-[length:var(--text-body)]">
+              {activeLinks.map((link, index) => (
+                <li key={index}>
+                  <a href={link.href} className="whitespace-nowrap transition-opacity duration-[var(--dur-fast)] hover:opacity-60">
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+              {privacyHref && (
+                <li>
+                  <a href={privacyHref} className="whitespace-nowrap text-muted-foreground transition-opacity duration-[var(--dur-fast)] hover:opacity-60">
+                    Privacy Policy
+                  </a>
+                </li>
+              )}
+            </ul>
+          </nav>
           <p className="text-[length:var(--text-small)] text-muted-foreground">{copyright ?? `© ${new Date().getFullYear()} ${brand}`}</p>
         </div>
 

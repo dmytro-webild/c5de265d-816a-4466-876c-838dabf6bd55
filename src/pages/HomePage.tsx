@@ -219,7 +219,8 @@ export default function HomePage() {
             name: "Your name",
             email: "Business email",
             projectType: "Business type",
-            message: "Website or Instagram link"
+            existingLink: "Website or Instagram link",
+            helpDetails: "What would you like help with?"
           }}
         />
       </div>
