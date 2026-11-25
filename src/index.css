@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "./styles/animations.css";
 @import "./styles/masks.css";
@@ -9,15 +9,15 @@
 
 /* webild:theme-ai */
 :root {
-  --primary-cta: #3D5139;
-  --primary-cta-text: #FFFFFF;
-  --secondary-cta: #EEF1E9;
-  --secondary-cta-text: #1B1D1A;
+  --primary-cta: #eef6f9;
+  --primary-cta-text: #0e1820;
+  --secondary-cta: #1a2731;
+  --secondary-cta-text: #eef6f9;
   --background-accent: #3D5139;
 
-  --background: #FAF9F5;
-  --foreground: #1B1D1A;
-  --card: #FFFFFF;
+  --background: #0e1820;
+  --foreground: #eef6f9;
+  --card: #1a2731;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
@@ -25,25 +25,25 @@
   --primary-foreground: var(--primary-cta-text);
   --secondary: var(--secondary-cta);
   --secondary-foreground: var(--secondary-cta-text);
-  --muted: #EEF1E9;
-  --muted-foreground: #5C605A;
-  --accent: #3D5139;
-  --accent-foreground: #FFFFFF;
-  --deep: #1B1D1A;
-  --deep-foreground: #FAF9F5;
-  --destructive: #c93b2b;
-  --destructive-foreground: #FFFFFF;
-  --border: #E5E2D9;
-  --input: #E0DDD2;
-  --ring: #3D5139;
-  --tint-1: #EEF1E9;
-  --tint-2: #3D5139;
-  --tint-3: #5C605A;
+  --muted: #1a2731;
+  --muted-foreground: #9fb2bd;
+  --accent: #c2f0f5;
+  --accent-foreground: #061015;
+  --deep: #061015;
+  --deep-foreground: #eef6f9;
+  --destructive: #f35b3a;
+  --destructive-foreground: #252525;
+  --border: #2b3a46;
+  --input: #c9ccd4;
+  --ring: #eef6f9;
+  --tint-1: #c2f0f5;
+  --tint-2: #ffd4c7;
+  --tint-3: #fff2b3;
 
-  --font-heading: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-label: "Manrope", ui-monospace, monospace;
-  --heading-weight: 400;
+  --heading-weight: 500;
   --heading-tracking: -0.045em;
   --heading-leading: 1.02;
   --text-display: clamp(2.5rem, 1.5rem + 4.5vw, 5.25rem);
@@ -127,14 +127,14 @@
     margin: 0;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 400;
     letter-spacing: -0.015em;
     min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Space Grotesk", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: var(--heading-weight);
     letter-spacing: var(--heading-tracking);
     line-height: var(--heading-leading);
@@ -284,19 +284,19 @@
 }
 
 [data-tone="deep"] {
-  --background: #1B1D1A;
-  --foreground: #FAF9F5;
-  --card: #242723;
+  --background: #0e1820;
+  --foreground: #eef6f9;
+  --card: #1a2731;
   --card-foreground: #FAF9F5;
   --primary: #3D5139;
   --primary-foreground: #FFFFFF;
   --secondary: #EEF1E9;
   --secondary-foreground: #1B1D1A;
-  --muted: #272A25;
-  --muted-foreground: #A4A8A0;
-  --border: #2E322C;
+  --muted: #1a2731;
+  --muted-foreground: #9fb2bd;
+  --border: #2b3a46;
   --input: #383D35;
-  --ring: #3D5139;
+  --ring: #eef6f9;
   background-color: var(--background);
   color: var(--foreground);
 }
