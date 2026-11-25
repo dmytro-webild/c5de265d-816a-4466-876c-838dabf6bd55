@@ -1,10 +1,10 @@
 import HeroMockupComposition from "@/components/sections/hero/HeroMockupComposition";
-import CustomerQuestionsSection from "@/components/sections/features/CustomerQuestionsSection";
 import InteractivePortfolioSection from "@/components/sections/gallery/InteractivePortfolioSection";
+import CustomerQuestionsSection from "@/components/sections/features/CustomerQuestionsSection";
+import FounderNoteSection from "@/components/sections/about/FounderNoteSection";
 import IndustriesSection from "@/components/sections/features/IndustriesSection";
 import ServicesStackCards from "@/components/sections/features/ServicesStackCards";
 import ProcessMaskSteps from "@/components/sections/features/ProcessMaskSteps";
-import SocialProofSection from "@/components/sections/testimonial/SocialProofSection";
 import PackagesSection from "@/components/sections/pricing/PackagesSection";
 import FaqBlurAccordion from "@/components/sections/faq/FaqBlurAccordion";
 import StatementDarkCta from "@/components/sections/statement/StatementDarkCta";
@@ -30,30 +30,33 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 2. CUSTOMER QUESTIONS */}
-      <div id="customer-questions" data-webild-section="CustomerQuestionsSection" data-webild-section-id="CustomerQuestionsSection-1" data-section="customer-questions">
-        <CustomerQuestionsSection
-          eyebrow="Customer Questions"
-          heading="Give customers the answers they came for."
-          description="When a local UAE customer searches for your business, they want instant answers. Here is how MECLIN turns quick lookups into paying customers."
-        />
-      </div>
-
-      {/* 3. INTERACTIVE PORTFOLIO */}
+      {/* 2. PORTFOLIO (Placed directly after Hero) */}
       <div id="interactive-portfolio" data-webild-section="InteractivePortfolioSection" data-webild-section-id="InteractivePortfolioSection-1" data-section="interactive-portfolio">
         <InteractivePortfolioSection />
       </div>
 
-      {/* 4. INDUSTRIES SECTION */}
+      {/* 3. CUSTOMER QUESTIONS */}
+      <div id="customer-questions" data-webild-section="CustomerQuestionsSection" data-webild-section-id="CustomerQuestionsSection-1" data-section="customer-questions">
+        <CustomerQuestionsSection
+          heading="Give customers the answers they came for."
+          description="When a local UAE customer searches for your business, they want instant answers. MECLIN turns quick lookups into booked calls and visits."
+        />
+      </div>
+
+      {/* 4. FOUNDER NOTE */}
+      <div id="founder-note" data-webild-section="FounderNoteSection" data-webild-section-id="FounderNoteSection-1" data-section="founder-note">
+        <FounderNoteSection />
+      </div>
+
+      {/* 5. INDUSTRIES SECTION */}
       <div id="industries" data-webild-section="IndustriesSection" data-webild-section-id="IndustriesSection-1" data-section="industries">
         <IndustriesSection
-          label="Sectors & Outcomes"
           title="What should your customers be able to do?"
           description="Show clear, sector-specific outcomes so every visitor takes action instantly on mobile."
         />
       </div>
 
-      {/* 5. SERVICES SECTION */}
+      {/* 6. SERVICES SECTION */}
       <div id="services" data-webild-section="ServicesStackCards" data-webild-section-id="ServicesStackCards-1" data-section="services" data-scene>
         <ServicesStackCards
           title="A website you can use from day one."
@@ -98,10 +101,9 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 6. FOUR-STEP PROCESS TIMELINE */}
+      {/* 7. FOUR-STEP PROCESS TIMELINE */}
       <div id="process-mask-steps" data-webild-section="ProcessMaskSteps" data-webild-section-id="ProcessMaskSteps-1" data-section="process-mask-steps">
         <ProcessMaskSteps
-          label="Simple 4-Step Timeline"
           title="From first call to live website"
           description="MECLIN confirms the exact scope, deliverable list, and timeline in writing before starting."
           items={[
@@ -133,21 +135,11 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 7. HIDDEN SOCIAL PROOF COMPONENTS */}
-      <div id="social-proof" data-webild-section="SocialProofSection" data-webild-section-id="SocialProofSection-1" data-section="social-proof">
-        <SocialProofSection
-          label="Verified Social Proof"
-          title="Trusted by local businesses across Dubai & UAE"
-          description="Real local business owners who upgraded to dedicated conversion websites."
-        />
-      </div>
-
       {/* 8. THREE-TIER PACKAGES SECTION */}
       <div id="packages" data-webild-section="PackagesSection" data-webild-section-id="PackagesSection-1" data-section="packages">
         <PackagesSection
-          label="Transparent Packages"
           title="Three packages built for local UAE businesses"
-          description="Clear pricing placeholders in AED with confirmed scope before work begins."
+          description="Get a confirmed scope quote in AED with fixed deliverables before work begins."
         />
       </div>
 
@@ -171,7 +163,7 @@ export default function HomePage() {
             },
             {
               title: "What are your package prices?",
-              description: "Packages start at AED 2,500 for single-page sites and AED 5,000 for full multi-page builds, with scope confirmed before starting."
+              description: "Get a quote in AED tailored to your business scope, with fixed deliverables confirmed before starting."
             },
             {
               title: "Do you help align our Google Maps profile?",
@@ -185,7 +177,7 @@ export default function HomePage() {
         />
       </div>
 
-      {/* 10. DARK NAVY FINAL CTA SECTION */}
+      {/* 10. DARK NAVY FINAL CTA & BOOKING SECTION */}
       <div id="final-cta" data-webild-section="StatementDarkCta" data-webild-section-id="StatementDarkCta-1" data-section="final-cta">
         <StatementDarkCta
           label="Ready to grow?"
@@ -219,7 +211,7 @@ export default function HomePage() {
             name: "Your name",
             email: "Business email",
             projectType: "Business type",
-            existingLink: "Website or Instagram link",
+            existingLink: "Existing website, Instagram or Google Maps link",
             helpDetails: "What would you like help with?"
           }}
         />

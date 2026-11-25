@@ -151,12 +151,11 @@ const ContactArchWindow = ({
         if (!response.ok) {
           throw new Error(`Server returned status ${response.status}`);
         }
+        setSubmissionState("success");
       } else {
-        // Simulated network delay for demo preview mode
-        await new Promise((resolve) => setTimeout(resolve, 750));
+        setErrorMessage("Form destination is currently unconfigured. Please reach us via WhatsApp or Email below.");
+        setSubmissionState("error");
       }
-
-      setSubmissionState("success");
     } catch (err: unknown) {
       const msg = err instanceof Error ? err.message : "Failed to send request. Please try again or WhatsApp us directly.";
       setErrorMessage(msg);
@@ -262,7 +261,7 @@ const ContactArchWindow = ({
   );
 
   return (
-    <section ref={ref} id="contact-section" aria-label={ariaLabel ?? title} className={cn("relative bg-background py-[var(--section-space)] text-foreground", className)}>
+    <section ref={ref} id="contact-section" aria-label={ariaLabel ?? title} className={cn("relative bg-[#10111C] py-[var(--section-space)] text-[#F7F4EE] border-t border-[#232538]", className)}>
       <div className="mx-auto grid w-[var(--container)] grid-cols-1 gap-x-[var(--gap)] gap-y-12 lg:grid-cols-12">
         <div className="lg:col-span-5 xl:col-span-5">{heading}</div>
 

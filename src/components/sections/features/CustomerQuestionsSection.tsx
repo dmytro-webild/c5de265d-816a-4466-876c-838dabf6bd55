@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Clock, MapPin, Phone, MessageSquare, Utensils, Sparkles, ChevronRight, Check } from "lucide-react";
+import { Clock, MapPin, Phone, MessageSquare, Utensils, ChevronRight, Check } from "lucide-react";
 
 export type CustomerQuestionsSectionProps = {
   eyebrow?: string;
@@ -8,16 +8,15 @@ export type CustomerQuestionsSectionProps = {
 };
 
 export default function CustomerQuestionsSection({
-  eyebrow = "Customer Questions",
   heading = "Give customers the answers they came for.",
-  description = "When a local UAE customer searches for your business, they want instant answers. Here is how MECLIN turns quick lookups into paying customers.",
+  description = "When a local UAE customer searches for your business, they want instant answers. MECLIN turns quick lookups into booked calls and visits.",
 }: CustomerQuestionsSectionProps) {
   const cards = [
     {
       id: "open",
       question: "“Are you open?”",
-      featureTitle: "Live Opening Hours & Instant Directions",
-      featureDesc: "Clear opening status, current hours, Google Maps directions, and direct phone links right on the landing hero.",
+      featureTitle: "Live Hours & Location",
+      featureDesc: "Clear opening status, current operating hours, and 1-tap Google Maps directions right on your landing hero.",
       icon: Clock,
       mockupType: "hours",
       highlights: [
@@ -29,8 +28,8 @@ export default function CustomerQuestionsSection({
     {
       id: "offer",
       question: "“What do you offer?”",
-      featureTitle: "Phone-Scannable Digital Menus & Price Sheets",
-      featureDesc: "No more forcing diners to download 20MB PDF menus. Fast, mobile-first visual menus and clear service pricing.",
+      featureTitle: "Scannable Digital Menus",
+      featureDesc: "Fast, mobile-first visual menus and clear service pricing so visitors find what they need without downloading PDFs.",
       icon: Utensils,
       mockupType: "menu",
       highlights: [
@@ -42,8 +41,8 @@ export default function CustomerQuestionsSection({
     {
       id: "book",
       question: "“How do I book?”",
-      featureTitle: "Direct 1-Tap WhatsApp & Booking Routes",
-      featureDesc: "Zero-friction reservation pathways connecting prospects straight to your team on WhatsApp or online booking.",
+      featureTitle: "Direct WhatsApp & Call Buttons",
+      featureDesc: "Zero-friction pathways connecting prospects straight to your team via prefilled WhatsApp or booking widgets.",
       icon: MessageSquare,
       mockupType: "booking",
       highlights: [
@@ -55,21 +54,11 @@ export default function CustomerQuestionsSection({
   ];
 
   return (
-    <section id="customer-questions" className="py-20 lg:py-28 bg-background border-b border-border">
+    <section id="customer-questions" className="py-20 lg:py-28 bg-background border-b border-border/60">
       <div className="w-[min(100%-2*var(--gutter),var(--max-w))] mx-auto">
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-mono tracking-wider uppercase mb-4"
-          >
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>{eyebrow}</span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
