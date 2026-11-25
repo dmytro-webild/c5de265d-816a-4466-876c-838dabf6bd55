@@ -42,8 +42,8 @@ export default function Layout() {
               href: "#faq"
             }
           ]}
-          contactLabel="hello@meclin.store"
-          contactHref="mailto:hello@meclin.store"
+          contactLabel="customerservice@meclin.store"
+          contactHref="mailto:customerservice@meclin.store"
           socials={[
             {
               label: "Instagram",
@@ -55,7 +55,7 @@ export default function Layout() {
             },
             {
               label: "WhatsApp",
-              href: "#"
+              href: "https://wa.me/971508520527"
             }
           ]}
           introDelay={1.2}
@@ -64,7 +64,7 @@ export default function Layout() {
       <main className="flex-grow" data-button="default" data-card="default" data-pattern="none">
         <Outlet />
       </main>
-      <footer data-webild-section="Footer" data-section="footer" className="relative z-10 flex min-h-svh flex-col justify-end bg-card pt-[clamp(4rem,9svh,6rem)]">
+      <footer data-webild-section="Footer" data-section="footer" className="relative z-10 flex min-h-svh flex-col justify-end bg-[#10111C] text-[#F7F4EE] pt-[clamp(4rem,9svh,6rem)]">
         <FooterNewsletterReveal
           brand="MECLIN"
           socials={[
@@ -78,12 +78,12 @@ export default function Layout() {
             },
             {
               text: "WhatsApp",
-              href: "https://wa.me/"
+              href: "https://wa.me/971508520527"
             }
           ]}
           message="Make it easy for customers to choose you,"
           messageMuted="whether you run a local restaurant, café, salon, clinic or service business in Dubai & the UAE."
-          email="hello@meclin.store"
+          email="customerservice@meclin.store"
           newsletterTitle="Get local web tips"
           newsletterDescription="Practical insights on converting online visitors into booked calls and direct visits."
           submitText="Subscribe"

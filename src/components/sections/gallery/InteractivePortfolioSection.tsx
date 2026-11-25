@@ -93,7 +93,7 @@ export default function InteractivePortfolioSection() {
   ];
 
   return (
-    <section id="interactive-portfolio" className="py-20 lg:py-28 bg-card/40 border-b border-border">
+    <section id="interactive-portfolio" className="py-20 lg:py-28 bg-[#EEEAF7] text-[#10111C] border-b border-[#E0D9ED]">
       <div className="w-[min(100%-2*var(--gutter),var(--max-w))] mx-auto">
         
         {/* Section Header */}
@@ -102,9 +102,9 @@ export default function InteractivePortfolioSection() {
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-accent/20 border border-accent/40 text-foreground text-xs font-mono tracking-wider uppercase mb-4"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#7559BA]/20 border border-[#7559BA]/40 text-[#7559BA] text-xs font-semibold tracking-wider uppercase mb-4"
           >
-            <Sparkles className="w-3.5 h-3.5 text-accent" />
+            <Sparkles className="w-3.5 h-3.5 text-[#7559BA]" />
             <span>Interactive Portfolio</span>
           </motion.div>
 
@@ -429,7 +429,7 @@ export default function InteractivePortfolioSection() {
                             <label className="block text-xs font-mono text-slate-500 mb-1">Your Name &amp; Contact</label>
                             <input
                               type="text"
-                              placeholder="e.g. Tariq Mansoor (+971 50 123 4567)"
+                              placeholder="e.g. Tariq Mansoor (+971 50 852 0527)"
                               className="w-full bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-lg p-2.5 text-xs text-slate-900 dark:text-white"
                             />
                           </div>

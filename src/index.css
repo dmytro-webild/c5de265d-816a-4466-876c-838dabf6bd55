@@ -1,5 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&family=Syne:wght@400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
 @import "tailwindcss";
 @import "./styles/animations.css";
 @import "./styles/masks.css";
@@ -10,15 +9,15 @@
 
 /* webild:theme-ai */
 :root {
-  --primary-cta: #0b1b3a;
-  --primary-cta-text: #f7f9fc;
-  --secondary-cta: #adf2ff;
-  --secondary-cta-text: #0b1b3a;
-  --background-accent: #ff7a1a;
+  --primary-cta: #FFB478;
+  --primary-cta-text: #10111C;
+  --secondary-cta: #EEEAF7;
+  --secondary-cta-text: #10111C;
+  --background-accent: #7559BA;
 
-  --background: #f7f9fc;
-  --foreground: #0b1b3a;
-  --card: #e7eaf0;
+  --background: #F7F4EE;
+  --foreground: #10111C;
+  --card: #FFFFFF;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
@@ -26,37 +25,37 @@
   --primary-foreground: var(--primary-cta-text);
   --secondary: var(--secondary-cta);
   --secondary-foreground: var(--secondary-cta-text);
-  --muted: #e7eaf0;
-  --muted-foreground: #59667e;
-  --accent: var(--background-accent);
-  --accent-foreground: #0b1b3a;
-  --deep: #0b1b3a;
-  --deep-foreground: #f7f9fc;
+  --muted: #EEEAF7;
+  --muted-foreground: #6B687B;
+  --accent: #7559BA;
+  --accent-foreground: #FFFFFF;
+  --deep: #10111C;
+  --deep-foreground: #F7F4EE;
   --destructive: #f35b3a;
   --destructive-foreground: #252525;
-  --border: #dbe0e7;
-  --input: #c1c8d2;
-  --ring: var(--primary-cta);
-  --tint-1: #f0d5c8;
-  --tint-2: #ffd5af;
-  --tint-3: #f2d0bf;
+  --border: #E6E1D7;
+  --input: #DCD6CB;
+  --ring: #7559BA;
+  --tint-1: #EEEAF7;
+  --tint-2: #FFB478;
+  --tint-3: #7559BA;
 
-  --font-heading: "Syne", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-body: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --font-label: "DM Mono", ui-monospace, Menlo, monospace;
-  --heading-weight: 500;
-  --heading-tracking: -0.035em;
-  --heading-leading: 1;
-  --text-display: clamp(4.5rem, 2.4rem + 9vw, 12rem);
-  --text-h1: clamp(2.75rem, 2rem + 3vw, 4.5rem);
-  --text-h2: clamp(1.875rem, 1.5rem + 1.6vw, 3rem);
-  --text-h3: clamp(1.375rem, 1.2rem + 0.75vw, 1.875rem);
-  --text-body-lg: clamp(1.125rem, 1.02rem + 0.45vw, 1.5rem);
-  --text-body: clamp(1rem, 0.96rem + 0.16vw, 1.125rem);
-  --text-small: clamp(0.875rem, 0.85rem + 0.1vw, 0.9375rem);
-  --text-label: 0.8125rem;
+  --font-heading: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-label: "Manrope", ui-monospace, monospace;
+  --heading-weight: 400;
+  --heading-tracking: -0.045em;
+  --heading-leading: 1.02;
+  --text-display: clamp(2.5rem, 1.5rem + 4.5vw, 5.25rem);
+  --text-h1: clamp(1.875rem, 1.25rem + 2.5vw, 3.5rem);
+  --text-h2: clamp(1.875rem, 1.25rem + 2.5vw, 3.5rem);
+  --text-h3: clamp(1.25rem, 1.1rem + 0.6vw, 1.75rem);
+  --text-body-lg: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --text-body: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --text-small: clamp(0.875rem, 0.85rem + 0.15vw, 1rem);
+  --text-label: 0.875rem;
   --label-tracking: 0.02em;
-  --label-case: uppercase;
+  --label-case: none;
 
   --gutter: clamp(1rem, 0.6rem + 1.6vw, 2rem);
   --max-w: 1200px;
@@ -66,9 +65,9 @@
   --grid-columns: 12;
 
   --radius: 0.75rem;
-  --radius-card: 1.5rem;
-  --radius-button: 0.75rem;
-  --radius-image: 1.5rem;
+  --radius-card: 1.25rem;
+  --radius-button: 9999px;
+  --radius-image: 1.25rem;
 
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -76,7 +75,6 @@
   --dur-base: 0.9s;
   --dur-slow: 1.3s;
   --reveal-distance: 1.5rem;
-
 }
 
 @theme inline {
@@ -129,14 +127,14 @@
     margin: 0;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 400;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.015em;
     min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Syne", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: var(--heading-weight);
     letter-spacing: var(--heading-tracking);
     line-height: var(--heading-leading);
@@ -286,19 +284,19 @@
 }
 
 [data-tone="deep"] {
-  --background: var(--deep);
-  --foreground: var(--deep-foreground);
-  --card: #e7eaf0;
-  --card-foreground: var(--deep-foreground);
-  --primary: var(--deep-foreground);
-  --primary-foreground: var(--deep);
-  --secondary: #adf2ff;
-  --secondary-foreground: var(--deep-foreground);
-  --muted: #e7eaf0;
-  --muted-foreground: #59667e;
-  --border: #dbe0e7;
-  --input: #c1c8d2;
-  --ring: var(--deep-foreground);
+  --background: #10111C;
+  --foreground: #F7F4EE;
+  --card: #181926;
+  --card-foreground: #F7F4EE;
+  --primary: #FFB478;
+  --primary-foreground: #10111C;
+  --secondary: #EEEAF7;
+  --secondary-foreground: #10111C;
+  --muted: #1E2030;
+  --muted-foreground: #9FA1B5;
+  --border: #23263B;
+  --input: #2D304B;
+  --ring: #7559BA;
   background-color: var(--background);
   color: var(--foreground);
 }
