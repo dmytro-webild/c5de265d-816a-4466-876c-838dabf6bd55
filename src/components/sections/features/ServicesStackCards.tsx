@@ -13,10 +13,14 @@ const tints = ["bg-tint-1", "bg-tint-2", "bg-tint-3"];
 
 type Service = { title: string; description?: string; tags?: string[]; imageSrc?: string; imageAlt?: string };
 
+type ScopeNotice = { title: string; text: string; details?: string[] };
+
 type ServicesStackCardsProps = {
   title?: string;
+  subtitle?: string;
   cta?: { text: string; href: string };
   items?: Service[];
+  scopeNotice?: ScopeNotice;
   ariaLabel?: string;
   className?: string;
 };
@@ -125,8 +129,10 @@ const ServiceCard = ({ item, index, last, reduce }: CardProps) => {
 
 const ServicesStackCards = ({
   title = "Services.",
+  subtitle,
   cta = { text: "Get in touch", href: "#contact" },
   items = defaultItems,
+  scopeNotice,
   ariaLabel,
   className,
 }: ServicesStackCardsProps) => {
@@ -137,32 +143,39 @@ const ServicesStackCards = ({
   const words = title.split(/\s+/).filter(Boolean);
 
   return (
-    <section ref={sectionRef} aria-label={ariaLabel ?? title} data-scene className={cn("relative bg-background py-[var(--section-space)] text-foreground", className)}>
+    <section ref={sectionRef} aria-label={ariaLabel ?? title} data-scene className={cn("relative bg-background py-[var(--section-space)] text-foreground border-b border-border", className)}>
       <div className="mx-auto w-[var(--container)]">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-          <motion.h2
-            aria-label={title}
-            initial={reduce ? "shown" : "hidden"}
-            whileInView="shown"
-            viewport={{ once: true, amount: 0.5 }}
-            className="max-w-[14em] text-balance text-[length:var(--text-h1)] leading-[var(--heading-leading)] tracking-[var(--heading-tracking)] [font-family:var(--font-heading)] [font-weight:var(--heading-weight)] [overflow-wrap:anywhere]"
-          >
-            {words.map((word, index) => (
-              <Fragment key={index}>
-                <motion.div
-                  aria-hidden="true"
-                  variants={{
-                    hidden: { opacity: 0, y: "1.5rem" },
-                    shown: { opacity: 1, y: 0, transition: { duration: kit.base, ease: kit.ease, delay: index * 0.04 } },
-                  }}
-                  className="inline-block"
-                >
-                  {word}
-                </motion.div>
-                {index < words.length - 1 ? " " : null}
-              </Fragment>
-            ))}
-          </motion.h2>
+          <div>
+            <motion.h2
+              aria-label={title}
+              initial={reduce ? "shown" : "hidden"}
+              whileInView="shown"
+              viewport={{ once: true, amount: 0.5 }}
+              className="max-w-[14em] text-balance text-[length:var(--text-h1)] leading-[var(--heading-leading)] tracking-[var(--heading-tracking)] [font-family:var(--font-heading)] [font-weight:var(--heading-weight)] [overflow-wrap:anywhere]"
+            >
+              {words.map((word, index) => (
+                <Fragment key={index}>
+                  <motion.div
+                    aria-hidden="true"
+                    variants={{
+                      hidden: { opacity: 0, y: "1.5rem" },
+                      shown: { opacity: 1, y: 0, transition: { duration: kit.base, ease: kit.ease, delay: index * 0.04 } },
+                    }}
+                    className="inline-block"
+                  >
+                    {word}
+                  </motion.div>
+                  {index < words.length - 1 ? " " : null}
+                </Fragment>
+              ))}
+            </motion.h2>
+            {subtitle && (
+              <p className="mt-4 max-w-2xl text-[length:var(--text-body-lg)] text-muted-foreground text-balance">
+                {subtitle}
+              </p>
+            )}
+          </div>
           {cta && (
             <a href={cta.href} className="btn-link shrink-0 self-start whitespace-nowrap lg:self-auto">
               {cta.text}
@@ -177,6 +190,26 @@ const ServicesStackCards = ({
             <ServiceCard key={index} item={item} index={index} last={index === items.length - 1} reduce={reduce} />
           ))}
         </ol>
+
+        {scopeNotice && (
+          <div className="mt-12 rounded-[var(--radius-card)] bg-card border border-border p-6 md:p-8">
+            <h4 className="text-[length:var(--text-h3)] font-medium text-foreground mb-2">
+              {scopeNotice.title}
+            </h4>
+            <p className="text-[length:var(--text-body)] text-muted-foreground max-w-3xl leading-relaxed mb-4">
+              {scopeNotice.text}
+            </p>
+            {scopeNotice.details && scopeNotice.details.length > 0 && (
+              <div className="flex flex-wrap gap-2 pt-2 border-t border-border/60">
+                {scopeNotice.details.map((detail, idx) => (
+                  <span key={idx} className="rounded-full bg-background border border-border px-3 py-1 text-xs font-mono text-foreground">
+                    ✓ {detail}
+                  </span>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </section>
   );

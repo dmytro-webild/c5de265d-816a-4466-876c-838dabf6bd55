@@ -18,12 +18,24 @@ export default function Layout() {
               href: "#interactive-portfolio"
             },
             {
+              name: "Industries",
+              href: "#industries"
+            },
+            {
               name: "Services",
               href: "#services"
             },
             {
               name: "Process",
               href: "#process-mask-steps"
+            },
+            {
+              name: "Proof",
+              href: "#social-proof"
+            },
+            {
+              name: "Packages",
+              href: "#packages"
             },
             {
               name: "FAQ",
@@ -70,23 +82,27 @@ export default function Layout() {
             }
           ]}
           message="Make it easy for customers to choose you,"
-          messageMuted="whether you run a local restaurant, café, or service business in Dubai."
+          messageMuted="whether you run a local restaurant, café, salon, clinic or service business in Dubai & the UAE."
           email="hello@meclin.store"
           newsletterTitle="Get local web tips"
           newsletterDescription="Practical insights on converting online visitors into booked calls and direct visits."
           submitText="Subscribe"
           links={[
             {
-              text: "Questions",
-              href: "#customer-questions"
-            },
-            {
-              text: "Demos",
-              href: "#interactive-portfolio"
+              text: "Industries",
+              href: "#industries"
             },
             {
               text: "Services",
               href: "#services"
+            },
+            {
+              text: "Process",
+              href: "#process-mask-steps"
+            },
+            {
+              text: "Packages",
+              href: "#packages"
             },
             {
               text: "FAQ",
