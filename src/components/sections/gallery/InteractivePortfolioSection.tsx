@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Sparkles, ExternalLink, X, Utensils, Coffee, HeartPulse, Sparkle, MapPin, CheckCircle, PhoneCall, ChevronRight } from "lucide-react";
+import { ExternalLink, X, Utensils, Coffee, HeartPulse, Sparkle, MapPin, CheckCircle, PhoneCall, ChevronRight } from "lucide-react";
 
 type DemoId = "saffron" | "daybreak" | "palm" | "noor" | null;
 
@@ -98,16 +98,6 @@ export default function InteractivePortfolioSection() {
         
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#7559BA]/20 border border-[#7559BA]/40 text-[#7559BA] text-xs font-semibold tracking-wider uppercase mb-4"
-          >
-            <Sparkles className="w-3.5 h-3.5 text-[#7559BA]" />
-            <span>Interactive Portfolio</span>
-          </motion.div>
-
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -125,13 +115,13 @@ export default function InteractivePortfolioSection() {
             transition={{ delay: 0.2 }}
             className="text-[length:var(--text-body-lg)] text-muted-foreground leading-relaxed"
           >
-            Click any concept below to open a live interactive preview. Test how fast diners browse menus, check opening hours, or reserve tables on mobile.
+            Click any concept demo below to open a working preview. Test how fast diners browse menus, check opening hours, or reserve table & appointment slots on mobile.
           </motion.p>
         </div>
 
-        {/* 4 Clickable Concept Demos Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-          {demos.map((demo, idx) => {
+        {/* Featured Top Projects (Saffron Table & Daybreak Coffee) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          {demos.slice(0, 2).map((demo, idx) => {
             const Icon = demo.icon;
             return (
               <motion.div
@@ -141,11 +131,11 @@ export default function InteractivePortfolioSection() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                 onClick={() => openDemo(demo.id)}
-                className="group relative bg-background border border-border rounded-(--radius-card) overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all cursor-pointer flex flex-col justify-between"
+                className="group relative bg-background border border-border rounded-(--radius-card) overflow-hidden shadow-md hover:shadow-xl hover:border-primary/50 transition-all cursor-pointer flex flex-col justify-between"
               >
                 <div>
-                  {/* Top Image Preview Banner */}
-                  <div className="relative h-56 w-full overflow-hidden bg-slate-900">
+                  {/* Top Image Preview Banner (Larger for top 2) */}
+                  <div className="relative h-64 w-full overflow-hidden bg-slate-900">
                     <img
                       src={demo.image}
                       alt={demo.name}
@@ -153,10 +143,10 @@ export default function InteractivePortfolioSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
 
-                    {/* Fictional Sample Work Label */}
+                    {/* Concept Demo Label */}
                     <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur border border-slate-700 text-white text-[11px] font-mono">
                       <span className="w-2 h-2 rounded-full bg-amber-400" />
-                      <span>Fictional Sample Work</span>
+                      <span>Concept demo</span>
                     </div>
 
                     {/* Category Tag */}
@@ -199,9 +189,91 @@ export default function InteractivePortfolioSection() {
                   </div>
                 </div>
 
-                {/* Card Footer Button */}
+                {/* Card Footer Action Button */}
                 <div className="px-6 pb-6 pt-2 border-t border-border/40 flex items-center justify-between text-xs font-semibold text-primary group-hover:text-accent transition-colors">
-                  <span>Launch Live Concept Preview</span>
+                  <span>Try Concept Demo</span>
+                  <div className="p-2 rounded-full bg-primary/10 group-hover:bg-accent group-hover:text-accent-foreground transition-all">
+                    <ExternalLink className="w-4 h-4" />
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Secondary Demos Grid (Palm Family Clinic & Studio Noor) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {demos.slice(2, 4).map((demo, idx) => {
+            const Icon = demo.icon;
+            return (
+              <motion.div
+                key={demo.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                onClick={() => openDemo(demo.id)}
+                className="group relative bg-background border border-border rounded-(--radius-card) overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/50 transition-all cursor-pointer flex flex-col justify-between"
+              >
+                <div>
+                  {/* Image Preview Banner */}
+                  <div className="relative h-48 w-full overflow-hidden bg-slate-900">
+                    <img
+                      src={demo.image}
+                      alt={demo.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 opacity-85"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent" />
+
+                    {/* Concept Demo Label */}
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/90 backdrop-blur border border-slate-700 text-white text-[11px] font-mono">
+                      <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                      <span>Concept demo</span>
+                    </div>
+
+                    {/* Category Tag */}
+                    <div className="absolute top-4 right-4 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-white/90 dark:bg-slate-800/90 text-slate-900 dark:text-white text-xs font-semibold">
+                      <Icon className="w-3.5 h-3.5" />
+                      <span>{demo.category}</span>
+                    </div>
+
+                    {/* Banner Content */}
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <h3 className="text-xl font-bold font-heading mb-0.5">{demo.name}</h3>
+                      <p className="text-xs text-slate-300 font-mono flex items-center gap-1">
+                        <MapPin className="w-3 h-3 text-cyan-400" />
+                        <span>{demo.location}</span>
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6">
+                    <p className="text-sm font-medium text-foreground mb-4">
+                      {demo.tagline}
+                    </p>
+
+                    <p className="text-xs text-muted-foreground mb-6 leading-relaxed">
+                      {demo.description}
+                    </p>
+
+                    {/* Feature tags */}
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {demo.features.map((feat, fIdx) => (
+                        <span
+                          key={fIdx}
+                          className="px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-[11px] font-mono"
+                        >
+                          {feat}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Card Footer Action Button */}
+                <div className="px-6 pb-6 pt-2 border-t border-border/40 flex items-center justify-between text-xs font-semibold text-primary group-hover:text-accent transition-colors">
+                  <span>Try Concept Demo</span>
                   <div className="p-2 rounded-full bg-primary/10 group-hover:bg-accent group-hover:text-accent-foreground transition-all">
                     <ExternalLink className="w-4 h-4" />
                   </div>
@@ -269,7 +341,7 @@ export default function InteractivePortfolioSection() {
                         {demos.find((d) => d.id === activeDemo)?.name}
                       </h3>
                       <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">
-                        Fictional Work
+                        Concept demo
                       </span>
                     </div>
                     <p className="text-xs text-slate-300 font-mono">

@@ -54,7 +54,6 @@ const FooterNewsletterReveal = ({
   const uid = useId();
   const reduce = useReducedMotion();
   const kit = useKitMotion();
-  const letters = Array.from(brand);
   const hidden = { opacity: 0, y: kit.distance };
   const shown = { opacity: 1, y: 0 };
 
@@ -165,27 +164,6 @@ const FooterNewsletterReveal = ({
             </ul>
           </nav>
           <p className="text-[length:var(--text-small)] text-muted-foreground">{copyright ?? `© ${new Date().getFullYear()} ${brand}`}</p>
-        </div>
-
-        <div className="@container mt-[clamp(1.5rem,3vw,2.5rem)] w-full">
-          <div
-            aria-hidden="true"
-            style={{ fontSize: `calc(100cqw / ${Math.max(3, letters.length * 0.62).toFixed(2)})` }}
-            className="whitespace-nowrap pb-[0.04em] text-center leading-[0.82] tracking-[-0.05em] [font-family:var(--font-heading)] [font-weight:var(--heading-weight)]"
-          >
-            {letters.map((letter, i) => (
-              <motion.div
-                key={i}
-                initial={reduce ? false : { opacity: 0, y: "0.25em" }}
-                whileInView={shown}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: kit.slow, ease: kit.ease, delay: i * 0.05 }}
-                className="inline-block"
-              >
-                {letter === " " ? " " : letter}
-              </motion.div>
-            ))}
-          </div>
         </div>
       </div>
     </footer>

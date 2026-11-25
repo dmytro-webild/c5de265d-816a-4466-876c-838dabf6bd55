@@ -23,10 +23,9 @@ export type PackageTier = {
 const defaultTiers: PackageTier[] = [
   {
     name: "Essential Single-Page",
-    badge: "Quick Launch",
-    price: "2,500",
-    currency: "AED",
-    period: "one-time",
+    price: "Get a quote",
+    currency: "in AED",
+    period: "Fixed scope quote",
     description: "Ideal for local cafes, repair shops, and single-location service businesses needing a crisp online presence fast.",
     delivery: "1 to 2 Weeks",
     popular: false,
@@ -39,15 +38,15 @@ const defaultTiers: PackageTier[] = [
       "Mobile speed & touch optimization",
       "Full client handover guide"
     ],
-    ctaText: "Book Free Review",
+    ctaText: "Get a quote in AED",
     ctaHref: "#contact-arch-window"
   },
   {
     name: "Standard Multi-Page",
-    badge: "Most Popular",
-    price: "5,000",
-    currency: "AED",
-    period: "one-time",
+    badge: "Recommended",
+    price: "Get a quote",
+    currency: "in AED",
+    period: "Fixed scope quote",
     description: "Our complete business build for restaurants, salons, and clinics looking for maximum local customer conversion.",
     delivery: "2 to 3 Weeks",
     popular: true,
@@ -61,15 +60,14 @@ const defaultTiers: PackageTier[] = [
       "Complete editing handover session",
       "1 month post-launch support included"
     ],
-    ctaText: "Choose Standard",
+    ctaText: "Get a quote in AED",
     ctaHref: "#contact-arch-window"
   },
   {
     name: "Custom Business Suite",
-    badge: "Tailored Scope",
-    price: "8,500+",
-    currency: "AED",
-    period: "starting from",
+    price: "Get a quote",
+    currency: "in AED",
+    period: "Tailored scope quote",
     description: "For multi-location brands, high-volume dining venues, and businesses requiring dual language (English & Arabic) setup.",
     delivery: "3 to 4 Weeks",
     popular: false,
@@ -82,7 +80,7 @@ const defaultTiers: PackageTier[] = [
       "Dedicated WhatsApp account setup",
       "Priority launch & team handover"
     ],
-    ctaText: "Request Scope Quote",
+    ctaText: "Get a quote in AED",
     ctaHref: "#contact-arch-window"
   }
 ];
@@ -98,9 +96,8 @@ type PackagesSectionProps = {
 };
 
 export default function PackagesSection({
-  label = "Transparent Pricing",
   title = "Three packages built for local UAE businesses",
-  description = "No hidden fees or unexpected costs. Select a plan or request a custom scope tailored to your business needs.",
+  description = "Get a confirmed scope quote in AED with fixed deliverables before work begins.",
   scopeDisclaimer = "MECLIN confirms the exact scope, deliverable list, and fixed timeline in writing before starting any project.",
   tiers = defaultTiers,
   ariaLabel,
@@ -124,14 +121,6 @@ export default function PackagesSection({
       <div className="mx-auto w-[var(--container)]">
         {/* Header */}
         <div className="mb-[clamp(2.5rem,5vw,4rem)] text-center max-w-3xl mx-auto">
-          {label && (
-            <motion.p
-              {...rise(0)}
-              className="inline-flex items-center gap-2 text-[length:var(--text-small)] font-medium text-muted-foreground before:size-2 before:shrink-0 before:rounded-full before:bg-tint-3 before:content-[''] mb-4"
-            >
-              {label}
-            </motion.p>
-          )}
           <motion.h2
             {...rise(0.08)}
             className="text-[length:var(--text-h1)] font-normal leading-[var(--heading-leading)] tracking-[var(--heading-tracking)] text-balance"

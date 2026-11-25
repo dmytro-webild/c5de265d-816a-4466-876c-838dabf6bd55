@@ -103,40 +103,68 @@ const NavbarCrossMenu = ({
 
   return (
     <>
-      <a
-        ref={logoRef}
-        href="#"
-        aria-label={brand}
-        data-nav-chrome
-        className={`fixed left-[var(--gutter)] top-[1.25rem] z-[80] flex h-[2.75rem] items-center transition-colors duration-500 ${open ? "text-background" : dark.logo ? "text-deep-foreground" : "text-foreground"}`}
-      >
-        <motion.div {...intro(0)} className="flex items-center">
-          {logoSrc ? (
-            <img src={logoSrc} alt={brand} decoding="async" className="h-[2rem] w-auto max-w-[8rem] object-contain" />
-          ) : (
-            <p aria-hidden={monogram ? undefined : true} className="text-[length:var(--text-h3)] font-semibold leading-none tracking-[var(--heading-tracking)]">{glyph}</p>
-          )}
-        </motion.div>
-      </a>
-
-      <button
-        ref={menuRef}
-        type="button"
-        data-nav-chrome
-        aria-expanded={open}
-        aria-label={open ? closeText : menuText}
-        onClick={() => setOpen((value) => !value)}
-        className={`fixed right-[var(--gutter)] top-[1.25rem] z-[80] flex size-[2.75rem] items-center justify-center transition-colors duration-500 ${open ? "text-background" : dark.menu ? "text-deep-foreground" : "text-foreground"}`}
-      >
-        <motion.div {...intro(0.08)} aria-hidden="true" className="flex items-center justify-center">
-          <div
-            className={`relative size-[2rem] transition-transform duration-700 ease-[var(--ease-in-out)] motion-reduce:transition-none ${open ? "rotate-[135deg]" : "rotate-0"}`}
+      <header className="fixed top-0 inset-x-0 z-[80] transition-colors duration-300">
+        <div className="mx-auto flex h-[4.5rem] w-[var(--container)] items-center justify-between">
+          <a
+            ref={logoRef}
+            href="#"
+            aria-label={brand}
+            data-nav-chrome
+            className={`flex items-center transition-colors duration-500 ${open ? "text-background" : dark.logo ? "text-deep-foreground" : "text-foreground"}`}
           >
-            <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-current" />
-            <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-current" />
+            <motion.div {...intro(0)} className="flex items-center">
+              {logoSrc ? (
+                <img src={logoSrc} alt={brand} decoding="async" className="h-[2rem] w-auto max-w-[8rem] object-contain" />
+              ) : (
+                <p aria-hidden={monogram ? undefined : true} className="text-[length:var(--text-h3)] font-semibold leading-none tracking-[var(--heading-tracking)]">{glyph}</p>
+              )}
+            </motion.div>
+          </a>
+
+          {/* Desktop Navigation Links & Booking CTA */}
+          <div className="hidden md:flex items-center gap-6">
+            <nav aria-label="Desktop Main Navigation">
+              <ul className="flex items-center gap-6 text-sm font-medium">
+                {navItems.map((item, i) => (
+                  <li key={`${i}-${item.href}`}>
+                    <a
+                      href={item.href}
+                      className={`transition-colors duration-200 hover:text-accent ${dark.logo ? "text-deep-foreground/80 hover:text-deep-foreground" : "text-foreground/80 hover:text-foreground"}`}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            <a
+              href="#contact-arch-window"
+              className="inline-flex items-center justify-center px-4 py-2 text-xs font-semibold rounded-full bg-primary text-primary-foreground hover:opacity-90 transition-opacity shadow-sm"
+            >
+              Book 15-Min Call
+            </a>
           </div>
-        </motion.div>
-      </button>
+
+          <button
+            ref={menuRef}
+            type="button"
+            data-nav-chrome
+            aria-expanded={open}
+            aria-label={open ? closeText : menuText}
+            onClick={() => setOpen((value) => !value)}
+            className={`flex md:hidden size-[2.75rem] items-center justify-center transition-colors duration-500 ${open ? "text-background" : dark.menu ? "text-deep-foreground" : "text-foreground"}`}
+          >
+            <motion.div {...intro(0.08)} aria-hidden="true" className="flex items-center justify-center">
+              <div
+                className={`relative size-[2rem] transition-transform duration-700 ease-[var(--ease-in-out)] motion-reduce:transition-none ${open ? "rotate-[135deg]" : "rotate-0"}`}
+              >
+                <div className="absolute inset-x-0 top-1/2 h-px -translate-y-1/2 bg-current" />
+                <div className="absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-current" />
+              </div>
+            </motion.div>
+          </button>
+        </div>
+      </header>
 
       <AnimatePresence>
         {open && (

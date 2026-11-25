@@ -93,11 +93,6 @@ const ProcessMaskSteps = ({ label = "Process", title = "How we work", descriptio
       <div className="mx-auto grid w-[var(--container)] grid-cols-1 gap-[clamp(1.5rem,3vw,2.5rem)] lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-[clamp(2.5rem,5vw,5rem)]">
         <div className="lg:relative">
           <div className="flex flex-col gap-[clamp(1rem,1.6vw,1.5rem)] lg:sticky lg:top-[clamp(6rem,9vw,8rem)]">
-            {label && (
-              <motion.p {...rise(0)} className="flex items-center gap-2 text-[length:var(--text-small)] font-medium leading-none text-muted-foreground before:size-2 before:shrink-0 before:rounded-full before:bg-tint-3 before:content-['']">
-                {label.replace(/^\(\s*|\s*\)$/g, "")}
-              </motion.p>
-            )}
             {title && (
               <h2 className="max-w-[12em] text-balance text-[length:var(--text-h1)] leading-[var(--heading-leading)] tracking-[var(--heading-tracking)] [font-weight:var(--heading-weight)] [overflow-wrap:anywhere]">
                 {words.map((word, i) => (

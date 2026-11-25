@@ -76,7 +76,6 @@ type IndustriesSectionProps = {
 };
 
 export default function IndustriesSection({
-  label = "Sectors & Outcomes",
   title = "What should your customers be able to do?",
   description = "Every local business type requires a frictionless customer journey. We build targeted features so your visitors take immediate action.",
   industries = defaultIndustries,
@@ -99,15 +98,8 @@ export default function IndustriesSection({
       className={cn("relative bg-background py-[var(--section-space)] text-foreground border-b border-border", className)}
     >
       <div className="mx-auto w-[var(--container)]">
-        <div className="mb-[clamp(2.5rem,5vw,4rem)] max-w-3xl">
-          {label && (
-            <motion.p
-              {...rise(0)}
-              className="flex items-center gap-2 text-[length:var(--text-small)] font-medium leading-none text-muted-foreground before:size-2 before:shrink-0 before:rounded-full before:bg-tint-3 before:content-[''] mb-4"
-            >
-              {label}
-            </motion.p>
-          )}
+        {/* Header */}
+        <div className="mb-[clamp(2.5rem,5vw,4rem)] text-center max-w-3xl mx-auto">
           <motion.h2
             {...rise(0.08)}
             className="text-[length:var(--text-h1)] font-normal leading-[var(--heading-leading)] tracking-[var(--heading-tracking)] text-balance"

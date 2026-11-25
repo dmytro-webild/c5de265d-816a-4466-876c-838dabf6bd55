@@ -10,16 +10,8 @@ export default function Layout() {
           brand="MECLIN"
           navItems={[
             {
-              name: "Questions",
-              href: "#customer-questions"
-            },
-            {
-              name: "Demos",
+              name: "Work",
               href: "#interactive-portfolio"
-            },
-            {
-              name: "Industries",
-              href: "#industries"
             },
             {
               name: "Services",
@@ -30,11 +22,7 @@ export default function Layout() {
               href: "#process-mask-steps"
             },
             {
-              name: "Proof",
-              href: "#social-proof"
-            },
-            {
-              name: "Packages",
+              name: "Pricing",
               href: "#packages"
             },
             {
@@ -82,15 +70,15 @@ export default function Layout() {
             }
           ]}
           message="Make it easy for customers to choose you,"
-          messageMuted="whether you run a local restaurant, café, salon, clinic or service business in Dubai & the UAE."
+          messageMuted="whether you run a local restaurant, café, salon, clinic or service business in Dubai & UAE."
           email="customerservice@meclin.store"
           newsletterTitle="Get local web tips"
           newsletterDescription="Practical insights on converting online visitors into booked calls and direct visits."
           submitText="Subscribe"
           links={[
             {
-              text: "Industries",
-              href: "#industries"
+              text: "Work",
+              href: "#interactive-portfolio"
             },
             {
               text: "Services",
@@ -101,7 +89,7 @@ export default function Layout() {
               href: "#process-mask-steps"
             },
             {
-              text: "Packages",
+              text: "Pricing",
               href: "#packages"
             },
             {
@@ -113,7 +101,7 @@ export default function Layout() {
               href: "#contact-arch-window"
             }
           ]}
-          copyright="© 2026 MECLIN. Al Serkal Avenue, Al Quoz, Dubai, UAE."
+          copyright="© 2026 MECLIN."
         />
       </footer>
     </div>
