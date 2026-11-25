@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&family=Young+Serif&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&family=Inter+Tight:wght@400;500;600;700&family=Unbounded:wght@400;500;600;700&family=Young+Serif&family=Outfit:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 @import "./styles/animations.css";
 @import "./styles/masks.css";
@@ -9,15 +9,15 @@
 
 /* webild:theme-ai */
 :root {
-  --primary-cta: #f7efe8;
-  --primary-cta-text: #1a1512;
-  --secondary-cta: #28211c;
-  --secondary-cta-text: #f7efe8;
+  --primary-cta: #16202a;
+  --primary-cta-text: #fbfeff;
+  --secondary-cta: #eaf3f6;
+  --secondary-cta-text: #16202a;
   --background-accent: #3D5139;
 
-  --background: #1a1512;
-  --foreground: #f7efe8;
-  --card: #28211c;
+  --background: #fbfeff;
+  --foreground: #16202a;
+  --card: #eaf3f6;
   --card-foreground: var(--foreground);
   --popover: var(--card);
   --popover-foreground: var(--foreground);
@@ -25,25 +25,25 @@
   --primary-foreground: var(--primary-cta-text);
   --secondary: var(--secondary-cta);
   --secondary-foreground: var(--secondary-cta-text);
-  --muted: #28211c;
-  --muted-foreground: #b6a89d;
-  --accent: #fbe7a1;
-  --accent-foreground: #120e0b;
-  --deep: #120e0b;
-  --deep-foreground: #f7efe8;
+  --muted: #eaf3f6;
+  --muted-foreground: #566570;
+  --accent: #c2f0f5;
+  --accent-foreground: #16202a;
+  --deep: #11303a;
+  --deep-foreground: #fbfeff;
   --destructive: #f35b3a;
   --destructive-foreground: #252525;
-  --border: #3a302a;
+  --border: #dbe7ec;
   --input: #c9ccd4;
-  --ring: #f7efe8;
-  --tint-1: #fbe7a1;
-  --tint-2: #ffd1dc;
-  --tint-3: #cfdcff;
+  --ring: #16202a;
+  --tint-1: #c2f0f5;
+  --tint-2: #ffd4c7;
+  --tint-3: #fff2b3;
 
-  --font-heading: "Young Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-body: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --font-label: "Manrope", ui-monospace, monospace;
-  --heading-weight: 400;
+  --heading-weight: 500;
   --heading-tracking: -0.045em;
   --heading-leading: 1.02;
   --text-display: clamp(2.5rem, 1.5rem + 4.5vw, 5.25rem);
@@ -127,14 +127,14 @@
     margin: 0;
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: 400;
     letter-spacing: -0.015em;
     min-height: 100vh;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: "Young Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     font-weight: var(--heading-weight);
     letter-spacing: var(--heading-tracking);
     line-height: var(--heading-leading);
@@ -284,19 +284,19 @@
 }
 
 [data-tone="deep"] {
-  --background: #1a1512;
-  --foreground: #f7efe8;
-  --card: #28211c;
+  --background: #fbfeff;
+  --foreground: #16202a;
+  --card: #eaf3f6;
   --card-foreground: #FAF9F5;
   --primary: #3D5139;
   --primary-foreground: #FFFFFF;
   --secondary: #EEF1E9;
   --secondary-foreground: #1B1D1A;
-  --muted: #28211c;
-  --muted-foreground: #b6a89d;
-  --border: #3a302a;
+  --muted: #eaf3f6;
+  --muted-foreground: #566570;
+  --border: #dbe7ec;
   --input: #383D35;
-  --ring: #f7efe8;
+  --ring: #16202a;
   background-color: var(--background);
   color: var(--foreground);
 }
